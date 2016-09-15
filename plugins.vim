@@ -40,6 +40,25 @@ endif
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
+Plugin 'thinca/vim-quickrun'
+let g:quickrun_config = {
+\   "_" : {
+\       "hook/close_unite_quickfix/enable_hook_loaded" : 1,
+\       "hook/unite_quickfix/enable_failure" : 1,
+\       "hook/close_quickfix/enable_exit" : 1,
+\       "hook/close_buffer/enable_failure" : 1,
+\       "hook/close_buffer/enable_empty_data" : 1,
+\       "outputter/buffer/split" : ":botright 8sp",
+\   },
+\}
+" let g:quickrun_config = {
+" \   "_" : {
+" \       "outputter" : "message",
+" \   },
+" \}
+nnoremap <silent> <leader>x  :QuickRun -mode n<CR>
+vnoremap <silent> <leader>x  :QuickRun -mode v<CR>
+
 " Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'mhinz/vim-startify'             " Nice start screen
