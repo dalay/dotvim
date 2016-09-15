@@ -1,10 +1,9 @@
+
 " Включаем несовместимость настроек с Vi
 set nocompatible
 
-" PLUGINS SETTINGS
-if $USER != 'root' && !empty(glob("$HOME/.vim/.pluginsrc.vim"))
-    source $HOME/.vim/.pluginsrc.vim
-endif
+" set leaser key
+let mapleader=","
 
 " Use 256 colors in vim 
 " some plugins not work without it 
@@ -12,15 +11,13 @@ set t_Co=256
 
 " Кодировка текста по умолчанию utf8
 set termencoding=utf8
+set fileencodings=utf-8,cp1251,koi8-r,cp866
 
 " Включить подсветку синтаксиса и задаем цветовую схему по-умолчанию
 syntax on
 if !empty(glob("$HOME/.vim/colors/jellybeans.vim"))
     colorscheme jellybeans
 endif
-
-" set leaser key
-let mapleader=","
 
 "  Показывать номера строк
 set number
@@ -30,6 +27,8 @@ set incsearch
 
 " Подсвечивание результатов поиска
 set hlsearch
+" убираем выделение найденного по нажатию на пробел.
+nnoremap <silent> <Space> :nohl<Bar>:echo<CR>
 
 " умная зависимость от регистра. Детали `:h smartcase`
 set ignorecase
@@ -110,12 +109,12 @@ au FileType sh,bash map <F8> :!bash %<CR>
 " map <C-h> <C-w><Left>
 
 " Allow to copy/paste between VIM instances
-" "copy the current visual selection to ~/tmp/.vim_buffer
-vmap <Leader>y :w! ~/.vim_buffer<CR>
+" "copy the current visual selection to /tmp/.vim_buffer
+vmap <Leader>y :w! /tmp/.vim_buffer<CR>
 " "copy the current line to the buffer file if no visual selection
-nmap <Leader>y :.w! ~/.vim_buffer<CR>
+nmap <Leader>y :.w! /tmp/.vim_buffer<CR>
 " "paste the contents of the buffer file
-nmap <Leader>p :r ~/.vim_buffer<CR>
+nmap <Leader>p :r /tmp/.vim_buffer<CR>
 
 " Spell-Checker
 set spelllang=ru
@@ -150,7 +149,11 @@ if has("autocmd")
     autocmd FileType php setlocal ts=2 sts=2 sw=2 et
   augroup END
 endif
+
+" Omnicomplete
+set completeopt-=preview
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 
 " Disable arrow keys
 noremap <Up> <Nop>
@@ -165,3 +168,26 @@ set linebreak
 
 " Paste mode toggle
 set pastetoggle=<F6>
+
+
+" PLUGINS SETTINGS
+if $USER != 'root' && !empty(glob("$HOME/.vim/.pluginsrc.vim"))
+    source $HOME/.vim/.pluginsrc.vim
+endif
+
+" Шаблоны для разных типов файлов
+autocmd BufNewFile  *.py   0r ~/.vim/templates/python3
+autocmd BufNewFile  *.php     0r ~/.vim/templates/php
+" Функция для обработка меток в шаблоне
+" autocmd BufNewFile  *       call s:format_template()
+" function! s:format_template()
+"     set report=999
+
+"     let filename = expand('%:t')
+"     execute '%s/%vim%filename%/' . filename . '/geI'
+"     let header_var = substitute(toupper(filename), '\.', '_', 'ge')
+"     execute '%s/%vim%header_var%/' . header_var . '/geI'
+"     execute '%s/%vim%year%/\=strftime("%Y")/geI'
+
+"     set report=2
+" endfunction

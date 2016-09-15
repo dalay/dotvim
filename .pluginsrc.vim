@@ -20,31 +20,40 @@ Plugin 'scrooloose/nerdtree'            " Project and file navigation
 Plugin 'majutsushi/tagbar'              " Class/module browser
 
 "--------------=== Snippets support ===---------------
-Plugin 'garbas/vim-snipmate'       " Snippets manager
-Plugin 'MarcWeber/vim-addon-mw-utils'  " dependencies #1
-Plugin 'tomtom/tlib_vim'       " dependencies #2
-" Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'        " snippets repo
+" Plugin 'garbas/vim-snipmate'       " Snippets manager
+" Plugin 'MarcWeber/vim-addon-mw-utils'  " dependencies #1
+" Plugin 'tomtom/tlib_vim'       " dependencies #2
+" " Plugin 'SirVer/ultisnips'
+" Plugin 'honza/vim-snippets'        " snippets repo
 
 "---------------=== Languages support ===-------------
 " --- Python ---
 if has('python')
-    Plugin 'klen/python-mode'	        " Python mode (docs, refactor, lints
-    "  highlighting, run and ipdb and more)
+"     Plugin 'klen/python-mode'	        " Python mode (docs, refactor, lints
+"     "  highlighting, run and ipdb and more)
+    Plugin 'davidhalter/jedi-vim'
 endif
+" let g:pymode_run = 1
+" let g:pymode_run_bind = '<leader>r'
 
 " "------------------=== Other ===----------------------
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
-Plugin 'kien/ctrlp.vim'
+" Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'mhinz/vim-startify'             " Nice start screen
 
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-surround'
+" Plugin 'tpope/vim-surround'
 
+" ----- Auto Pairs -----------------
+Plugin 'jiangmiao/auto-pairs'
+
+" ----- SuperTab -----------------
+Plugin 'ervandew/supertab'
+let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 
 call vundle#end()            		" required
 filetype on
@@ -136,5 +145,6 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_quiet_messages={'level':'warnings'}
-au FileType html,htmldjango,php,css,javascript  map <F8> :SyntasticCheck<CR> 
+au FileType python,html,htmldjango,php,css,javascript  map <F8> :SyntasticCheck<CR> 
+
 
