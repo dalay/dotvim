@@ -171,8 +171,8 @@ set pastetoggle=<F6>
 
 
 " PLUGINS SETTINGS
-if $USER != 'root' && !empty(glob("$HOME/.vim/.pluginsrc.vim"))
-    source $HOME/.vim/.pluginsrc.vim
+if $USER != 'root' && !empty(glob("$HOME/.vim/plugins.vim"))
+    source $HOME/.vim/plugins.vim
 endif
 
 " Шаблоны для разных типов файлов
@@ -191,3 +191,5 @@ autocmd BufNewFile  *.php     0r ~/.vim/templates/php
 
 "     set report=2
 " endfunction
+"
+autocmd BufRead,BufNewFile *.vim set filetype=vim
