@@ -1,6 +1,4 @@
-" ------ VANDL PLUGINS START -----------------
-"
-
+" ----- VANDL PLUGINS START -----------------
 filetype off                  " required
 
 " Istall Vundle
@@ -29,26 +27,25 @@ Plugin 'majutsushi/tagbar'              " Class/module browser
 "---------------=== Languages support ===-------------
 " --- Python ---
 if has('python')
-"     Plugin 'klen/python-mode'	        " Python mode (docs, refactor, lints
-"     "  highlighting, run and ipdb and more)
+    " Plugin 'klen/python-mode'	        " Python mode (docs, refactor, lints
+    " let g:pymode_rope_lookup_project = 0
+
+    "  highlighting, run and ipdb and more)
     Plugin 'davidhalter/jedi-vim'
+    let g:jedi#rename_command = ''
 endif
-" let g:pymode_run = 1
-" let g:pymode_run_bind = '<leader>r'
 
 " "------------------=== Other ===----------------------
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
+
+" "------------------=== QuickRun ===----------------------
 Plugin 'thinca/vim-quickrun'
 let g:quickrun_config = {
-\   "_" : {
-\       "hook/close_unite_quickfix/enable_hook_loaded" : 1,
-\       "hook/unite_quickfix/enable_failure" : 1,
-\       "hook/close_quickfix/enable_exit" : 1,
-\       "hook/close_buffer/enable_failure" : 1,
-\       "hook/close_buffer/enable_empty_data" : 1,
-\       "outputter/buffer/split" : ":botright 8sp",
+\   "*" : {
+\       "outputter/buffer/close_on_empty" : 1,
+\       "outputter/buffer/split" : ":rightbelow 40vsp",
 \   },
 \}
 " let g:quickrun_config = {
@@ -56,12 +53,12 @@ let g:quickrun_config = {
 " \       "outputter" : "message",
 " \   },
 " \}
-nnoremap <silent> <leader>x  :QuickRun -mode n<CR>
-vnoremap <silent> <leader>x  :QuickRun -mode v<CR>
+" "---------------------------------------------------------
 
-" Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'mhinz/vim-startify'             " Nice start screen
+map <silent> <leader>s  :Startify<CR>
 
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-repeat'
@@ -124,6 +121,8 @@ let NERDTreeMinimalUI=1
 let NERDTreeIgnore=['\~$', '\.pyc$', '\.pyo$', '\.class$', 'pip-log\.txt$', '\.o$']
 " показывать скрытые файды
 let NERDTreeShowHidden=1
+" Закрывать после открытия файла
+let NERDTreeQuitOnOpen=1
 " закрываем вместе с последним окном
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 nmap <C-\> :NERDTreeFind<CR>
