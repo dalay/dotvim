@@ -170,10 +170,8 @@ set linebreak
 set pastetoggle=<F6>
 
 
-" PLUGINS SETTINGS
-if $USER != 'root' && !empty(glob("$HOME/.vim/plugins.vim"))
-    source $HOME/.vim/plugins.vim
-endif
+" PLUGINS 
+source $HOME/.vim/plugins_main.vim
 
 " Шаблоны для разных типов файлов
 autocmd BufNewFile  *.py   0r ~/.vim/templates/python3
