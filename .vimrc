@@ -146,7 +146,7 @@ if has("autocmd")
     autocmd BufRead,BufNewFile *.inc set filetype=php
     autocmd BufRead,BufNewFile *.profile set filetype=php
     autocmd BufRead,BufNewFile *.view set filetype=php
-    autocmd FileType php setlocal ts=2 sts=2 sw=2 et
+    " autocmd FileType php setlocal ts=2 sts=2 sw=2 et
   augroup END
 endif
 
@@ -167,11 +167,7 @@ set wrap
 set linebreak
 
 " Paste mode toggle
-set pastetoggle=<F6>
-
-
-" PLUGINS 
-source $HOME/.vim/plugins_main.vim
+set pastetoggle=<F2>
 
 " Шаблоны для разных типов файлов
 autocmd BufNewFile  *.py   0r ~/.vim/templates/python3
@@ -191,3 +187,6 @@ autocmd BufNewFile  *.php     0r ~/.vim/templates/php
 " endfunction
 "
 autocmd BufRead,BufNewFile *.vim set filetype=vim
+
+" PLUGINS 
+source $HOME/.vim/plugins.vim
