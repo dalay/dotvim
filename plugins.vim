@@ -25,6 +25,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'ervandew/supertab'
 Plugin 'davidhalter/jedi-vim' "  highlighting, run and ipdb and more)
+Plugin 'easymotion/vim-easymotion'
 
 " Plugin 'tpope/vim-fugitive'
 
@@ -143,3 +144,19 @@ let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 
 " ------------- Jedi-Vim  ---------------------
     let g:jedi#rename_command = ''
+
+" ------------- EasyMotion  ---------------------
+" <Leader>f{char} to move to {char}
+map  <Leader>f <Plug>(easymotion-bd-f)
+nmap <Leader>f <Plug>(easymotion-overwin-f)
+
+" s{char}{char} to move to {char}{char}
+nmap s <Plug>(easymotion-overwin-f2)
+
+" Move to line
+map <Leader>L <Plug>(easymotion-bd-jk)
+nmap <Leader>L <Plug>(easymotion-overwin-line)
+
+" Move to word
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
