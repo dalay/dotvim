@@ -37,8 +37,9 @@ filetype plugin on
 filetype plugin indent on
 
 "---------=== NerdTreee ===-------------
-" показать NERDTree на leader key
-map <leader><leader> :NERDTreeToggle<CR>
+" показать NERDTree на ...
+" map <leader><leader> :NERDTreeToggle<CR>
+map <F3> :NERDTreeToggle<CR>
 " Disable bookmarks label, and hint about '?' 
 let NERDTreeMinimalUI=1
 "игноррируемые файлы с расширениями
