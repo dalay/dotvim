@@ -26,14 +26,13 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'ervandew/supertab'
 Plugin 'davidhalter/jedi-vim' "  highlighting, run and ipdb and more)
 Plugin 'easymotion/vim-easymotion'
+Plugin 'sumpygump/php-documentor-vim'
 
 " Plugin 'tpope/vim-fugitive'
 
 " Plugin 'klen/python-mode'	        " Python mode (docs, refactor, lints
 call vundle#end()            		" required
 
-filetype on
-filetype plugin on
 filetype plugin indent on
 
 "---------=== NerdTreee ===-------------
@@ -161,3 +160,10 @@ let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 " " Move to word
 " map  <Leader>w <Plug>(easymotion-bd-w)
 " nmap <Leader>w <Plug>(easymotion-overwin-w)
+
+" ========== sumpygump/php-documentor-vim =========
+au FileType php inoremap <buffer> <C-P> :call PhpDoc()<CR>
+au FileType php nnoremap <buffer> <C-P> :call PhpDoc()<CR>
+au FileType php vnoremap <buffer> <C-P> :call PhpDocRange()<CR>
+let g:pdv_cfg_Author = 'Dalay <dalay@drupalka.ru>'
+let g:pdv_cfg_ClassTags = []

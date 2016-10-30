@@ -93,11 +93,11 @@ set wildmenu
 set list listchars=tab:→\ ,trail:·
 
 "  при переходе за границу в 80 символов в PHP/Python/js/ подсвечиваем на темном фоне текст
-" augroup vimrc_autocmds
-"     autocmd!
-"     autocmd FileType python,javascript,php highlight Excess ctermbg=DarkGrey guibg=Black
-"     autocmd FileType python,javascript,php match Excess /\%80v.*/
-" augroup END
+ augroup vimrc_autocmds
+     autocmd!
+     autocmd FileType python,javascript,php highlight Excess ctermbg=DarkGrey guibg=Black
+     autocmd FileType python,javascript,php match Excess /\%80v.*/
+ augroup END
 
 " run shell script in shell
 au FileType sh,bash map <F8> :!bash %<CR>
@@ -146,7 +146,7 @@ if has("autocmd")
     autocmd BufRead,BufNewFile *.inc set filetype=php
     autocmd BufRead,BufNewFile *.profile set filetype=php
     autocmd BufRead,BufNewFile *.view set filetype=php
-    " autocmd FileType php setlocal ts=2 sts=2 sw=2 et
+    autocmd FileType php setlocal ts=2 sts=2 sw=2 et
   augroup END
 endif
 
