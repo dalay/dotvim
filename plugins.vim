@@ -12,6 +12,7 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'      " let Vundle manage Vundle, required
 Plugin 'scrooloose/nerdtree'            " Project and file navigation
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'majutsushi/tagbar'              " Class/module browser
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -39,6 +40,8 @@ filetype plugin indent on
 " показать NERDTree на ...
 " map <leader><leader> :NERDTreeToggle<CR>
 map <F3> :NERDTreeToggle<CR>
+" автоматически обновлять буфер после переименовывания файла
+let NERDTreeAutoDeleteBuffer = 1
 " Disable bookmarks label, and hint about '?' 
 let NERDTreeMinimalUI=1
 "игноррируемые файлы с расширениями
@@ -50,6 +53,18 @@ let NERDTreeQuitOnOpen=1
 " закрываем вместе с последним окном
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 nmap <C-\> :NERDTreeFind<CR>
+"---------=== GitNerdTreee ===-------------
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ "Unknown"   : "?"
+    \ }
 
 
 " ------------- TagBar ---------------------------
@@ -75,6 +90,16 @@ let g:airline_section_y = ''
 let g:airline_section_x = ''
 let g:airline#extensions#tabline#left_sep = '▶'
 let g:airline#extensions#tabline#left_alt_sep = '|'
+" если файл с уникальным именем - показывается только имя, если встречается файл с таким же именем, отображается также и директория
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+" убираем "X" для закрытия вкладки мышью (мышью!?)
+let g:airline#extensions#tabline#show_close_button = 0
+" отключаем tagbar
+let g:airline#extensions#tagbar#enabled = 0
+" показывать номер вкладки
+let g:airline#extensions#tabline#show_tab_nr = 1
+" показывать только номер вкладки
+let g:airline#extensions#tabline#tab_nr_type = 1
 
 
 " "------------------=== QuickRun ===----------------------
