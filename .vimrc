@@ -15,9 +15,7 @@ set fileencodings=utf-8,cp1251,koi8-r,cp866
 
 " Включить подсветку синтаксиса и задаем цветовую схему по-умолчанию
 syntax on
-if !empty(glob("$HOME/.vim/colors/jellybeans.vim"))
-    colorscheme jellybeans
-endif
+colorscheme jellybeans
 
 "  Показывать номера строк
 set number

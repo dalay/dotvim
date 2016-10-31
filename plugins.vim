@@ -12,7 +12,6 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'      " let Vundle manage Vundle, required
 Plugin 'scrooloose/nerdtree'            " Project and file navigation
-Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'majutsushi/tagbar'              " Class/module browser
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -28,8 +27,6 @@ Plugin 'ervandew/supertab'
 Plugin 'davidhalter/jedi-vim' "  highlighting, run and ipdb and more)
 Plugin 'easymotion/vim-easymotion'
 Plugin 'sumpygump/php-documentor-vim'
-
-" Plugin 'tpope/vim-fugitive'
 
 " Plugin 'klen/python-mode'	        " Python mode (docs, refactor, lints
 call vundle#end()            		" required
@@ -53,19 +50,6 @@ let NERDTreeQuitOnOpen=1
 " закрываем вместе с последним окном
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 nmap <C-\> :NERDTreeFind<CR>
-"---------=== GitNerdTreee ===-------------
-let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "✖",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
-    \ "Unknown"   : "?"
-    \ }
-
 
 " ------------- TagBar ---------------------------
 map <F4> :TagbarToggle<CR>
@@ -73,7 +57,7 @@ let g:tagbar_autofocus = 1 " автофокус на Tagbar при открыт�
 
 
 " --------== Airline ==-------------------
-" let g:airline_theme = 'monokai'
+" let g:airline_theme = 'jellybeans'
 " Set custom left separator 
 let g:airline_left_sep = '▶'
 " Set custom right separator 
@@ -122,7 +106,6 @@ let g:quickrun_config = {
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-set statusline+=%{fugitive#statusline()}
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 " Automatic checks at open and save
