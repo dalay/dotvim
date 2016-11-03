@@ -168,8 +168,8 @@ set linebreak
 set pastetoggle=<F2>
 
 " Шаблоны для разных типов файлов
-autocmd BufNewFile  *.py   0r ~/.vim/templates/python3
-autocmd BufNewFile  *.php     0r ~/.vim/templates/php
+autocmd BufNewFile  *.py   0r ~/.vim/templates/python3 | 4
+autocmd BufNewFile  *.php     0r ~/.vim/templates/php | 3
 " Функция для обработка меток в шаблоне
 " autocmd BufNewFile  *       call s:format_template()
 " function! s:format_template()
