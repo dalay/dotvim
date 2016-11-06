@@ -27,6 +27,7 @@ Plugin 'ervandew/supertab'
 Plugin 'davidhalter/jedi-vim' "  highlighting, run and ipdb and more)
 Plugin 'easymotion/vim-easymotion'
 Plugin 'sumpygump/php-documentor-vim'
+Plugin 'nginx.vim'
 
 " Plugin 'klen/python-mode'	        " Python mode (docs, refactor, lints
 call vundle#end()            		" required
@@ -177,3 +178,6 @@ au FileType php nnoremap <buffer> <C-P> :call PhpDoc()<CR>
 au FileType php vnoremap <buffer> <C-P> :call PhpDocRange()<CR>
 let g:pdv_cfg_Author = 'Dalay <dalay@drupalka.ru>'
 let g:pdv_cfg_ClassTags = []
+
+"========== Vim-Commentary ==============
+autocmd FileType nginx setlocal commentstring=#\ %s

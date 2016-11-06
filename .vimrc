@@ -188,3 +188,6 @@ autocmd BufRead,BufNewFile *.vim set filetype=vim
 
 " PLUGINS 
 source $HOME/.vim/plugins.vim
+
+" Nginx
+au BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/* if &ft == '' | setfiletype nginx | endif 
