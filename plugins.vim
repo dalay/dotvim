@@ -27,7 +27,8 @@ Plugin 'ervandew/supertab'
 Plugin 'davidhalter/jedi-vim' "  highlighting, run and ipdb and more)
 Plugin 'easymotion/vim-easymotion'
 Plugin 'sumpygump/php-documentor-vim'
-Plugin 'nginx.vim'
+" Syntax Highlighting
+Plugin 'evanmiller/nginx-vim-syntax'
 Plugin 'dzeban/vim-log-syntax'
 
 " Plugin 'klen/python-mode'	        " Python mode (docs, refactor, lints
