@@ -156,20 +156,6 @@ set pastetoggle=<F2>
 " Шаблоны для разных типов файлов
 autocmd BufNewFile  *.py   0r ~/.vim/templates/python3 | 4
 autocmd BufNewFile  *.php     0r ~/.vim/templates/php | 3
-" Функция для обработка меток в шаблоне
-" autocmd BufNewFile  *       call s:format_template()
-" function! s:format_template()
-"     set report=999
-
-"     let filename = expand('%:t')
-"     execute '%s/%vim%filename%/' . filename . '/geI'
-"     let header_var = substitute(toupper(filename), '\.', '_', 'ge')
-"     execute '%s/%vim%header_var%/' . header_var . '/geI'
-"     execute '%s/%vim%year%/\=strftime("%Y")/geI'
-
-"     set report=2
-" endfunction
-"
 
 " PLUGINS 
 source $HOME/.vim/plugins.vim

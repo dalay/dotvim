@@ -30,6 +30,8 @@ Plugin 'sumpygump/php-documentor-vim'
 " Syntax Highlighting
 Plugin 'evanmiller/nginx-vim-syntax'
 Plugin 'dzeban/vim-log-syntax'
+" Drupal 
+Plugin 'git://drupalcode.org/project/vimrc.git', {'rtp': 'bundle/vim-plugin-for-drupal/'}
 
 " Plugin 'klen/python-mode'	        " Python mode (docs, refactor, lints
 call vundle#end()            		" required
