@@ -28,6 +28,7 @@ Plugin 'davidhalter/jedi-vim' "  highlighting, run and ipdb and more)
 Plugin 'easymotion/vim-easymotion'
 Plugin 'sumpygump/php-documentor-vim'
 Plugin 'nginx.vim'
+Plugin 'dzeban/vim-log-syntax'
 
 " Plugin 'klen/python-mode'	        " Python mode (docs, refactor, lints
 call vundle#end()            		" required

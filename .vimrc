@@ -134,20 +134,6 @@ set iminsert=0
 set imsearch=0
 set scrolloff=3     " keep 3 lines when scrolling
 
-" Drupal settings
-if has("autocmd")
-  " Drupal *.module and *.install files.
-  augroup module
-    autocmd BufRead,BufNewFile *.module set filetype=php
-    autocmd BufRead,BufNewFile *.install set filetype=php
-    autocmd BufRead,BufNewFile *.test set filetype=php
-    autocmd BufRead,BufNewFile *.inc set filetype=php
-    autocmd BufRead,BufNewFile *.profile set filetype=php
-    autocmd BufRead,BufNewFile *.view set filetype=php
-    autocmd FileType php setlocal ts=2 sts=2 sw=2 et
-  augroup END
-endif
-
 " Omnicomplete
 set completeopt-=preview
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
@@ -184,10 +170,6 @@ autocmd BufNewFile  *.php     0r ~/.vim/templates/php | 3
 "     set report=2
 " endfunction
 "
-autocmd BufRead,BufNewFile *.vim set filetype=vim
 
 " PLUGINS 
 source $HOME/.vim/plugins.vim
-
-" Nginx
-au BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/* if &ft == '' | setfiletype nginx | endif 
