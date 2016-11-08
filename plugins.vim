@@ -143,6 +143,13 @@ let g:startify_change_to_vcs_root = 1
 " let g:startify_session_persistence = 1
 let g:startify_custom_header = []
 map <silent> <leader>s  :Startify<CR>
+" highlight StartifyBracket ctermfg=240
+" highlight StartifyFooter  ctermfg=240
+" highlight StartifyHeader  ctermfg=114
+" highlight StartifyNumber  ctermfg=215
+" highlight StartifyPath    ctermfg=245
+" highlight StartifySlash   ctermfg=240
+" highlight StartifySpecial ctermfg=240
 
 " ----- SuperTab -----------------
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
