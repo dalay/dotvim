@@ -31,9 +31,8 @@ Plugin 'sumpygump/php-documentor-vim'
 Plugin 'evanmiller/nginx-vim-syntax'
 Plugin 'dzeban/vim-log-syntax'
 " Drupal 
-Plugin 'git://drupalcode.org/project/vimrc.git', {'rtp': 'bundle/vim-plugin-for-drupal/'}
+" Plugin 'git://drupalcode.org/project/vimrc.git', {'rtp': 'bundle/vim-plugin-for-drupal/'}
 
-" Plugin 'klen/python-mode'	        " Python mode (docs, refactor, lints
 call vundle#end()            		" required
 
 filetype plugin indent on
@@ -106,7 +105,7 @@ let g:quickrun_config = {
 " "---------------------------------------------------------
 
 
-"------------  Syntastic ----------------------
+" Syntastic ==================================================
 " let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes':   [],'passive_filetypes': [] }
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -120,13 +119,15 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_quiet_messages={'level':'warnings'}
 let g:syntastic_loc_list_height = 5
 au FileType python,html,htmldjango,php,css,javascript  map <F8> :SyntasticCheck<CR> 
-let g:syntastic_php_phpcs_args="--standard=Drupal --extensions=php,module,inc,install,test,profile,theme"
+" Друпал - строгие правила.
+" let g:syntastic_php_phpcs_args="--standard=Drupal --extensions=php,module,inc,install,test,profile,theme"
+" Друпал - правили полегче.
+let g:syntastic_php_phpcs_args="--report=csv --standard=".expand('<sfile>:p:h')."/.vim/misc/phpcs-drupal-ruleset.xml"
 if has('statusline')
   set laststatus=2
   " Broken down into easily includeable segments
   set statusline=%<%f\ " Filename
   set statusline+=%w%h%m%r " Options
-  set statusline+=%{fugitive#statusline()} " Git Hotness
   set statusline+=\ [%{&ff}/%Y] " filetype
   set statusline+=\ [%{getcwd()}] " current dir
   set statusline+=%#warningmsg#
@@ -138,7 +139,7 @@ endif
 
 
 " ----- Srartify-----------------
-let g:startify_bookmarks = ['~/.vimrc', '~/.vim/plugins.vim']
+let g:startify_bookmarks = ['~/.bashrc', '~/.vimrc', '~/.vim/plugins.vim', '~/scripts/']
 let g:startify_change_to_vcs_root = 1
 " let g:startify_session_persistence = 1
 let g:startify_custom_header = []
@@ -207,3 +208,16 @@ let g:pdv_cfg_ClassTags = []
 
 "========== Vim-Commentary ==============
 autocmd FileType nginx setlocal commentstring=#\ %s
+
+
+"========== Jellybeans Theme  ==============
+let g:jellybeans_overrides = {
+\    'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
+\}
+let g:jellybeans_use_term_italics = 1
+let g:jellybeans_overrides = {
+\    'Todo': { 'guifg': '303030', 'guibg': 'f0f000',
+\              'ctermfg': 'Black', 'ctermbg': 'Yellow',
+\              'attr': 'bold' },
+\    'Comment': { 'guifg': 'cccccc' },
+\}
