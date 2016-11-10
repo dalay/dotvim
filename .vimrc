@@ -1,4 +1,3 @@
-
 " Включаем несовместимость настроек с Vi
 set nocompatible
 
@@ -8,14 +7,14 @@ let mapleader=","
 " Use 256 colors in vim 
 " some plugins not work without it 
 set t_Co=256
+set background=dark
+" Включить подсветку синтаксиса и задаем цветовую схему по-умолчанию
+syntax on
+colorscheme jellybeans
 
 " Кодировка текста по умолчанию utf8
 set termencoding=utf8
 set fileencodings=utf-8,cp1251,koi8-r,cp866
-
-" Включить подсветку синтаксиса и задаем цветовую схему по-умолчанию
-syntax on
-colorscheme jellybeans
 
 "  Показывать номера строк
 set number
@@ -156,6 +155,22 @@ set pastetoggle=<F2>
 " Шаблоны для разных типов файлов
 autocmd BufNewFile  *.py   0r ~/.vim/templates/python3 | 4
 autocmd BufNewFile  *.php     0r ~/.vim/templates/php | 3
+
+" Переход в папку файла
+set browsedir=current
+
+" Фикс для использования русской раскладки в командном режиме
+set langmap=ёйцукенгшщзхъфывапролджэячсмитьбюЁЙЦУКЕHГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ;`qwertyuiop[]asdfghjkl\\;'zxcvbnm\\,.~QWERTYUIOP{}ASDFGHJKL:\\"ZXCVBNM<>
+
+" При редактировании файла всегда переходить на последнюю известную
+"позицию курсора. Если позиция ошибочная - не переходим.
+autocmd BufReadPost *
+ \ if line("'\"") > 0 && line("'\"") <= line("$") |
+  \   exe "normal! g`\"" |
+  \ endif
+
+" Открыть файл в Fierefox.
+nnoremap <f12> :exe ':silent !firefox %'<CR>
 
 " PLUGINS 
 source $HOME/.vim/plugins.vim
