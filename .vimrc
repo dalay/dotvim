@@ -39,7 +39,7 @@ set showcmd
 
 " Фолдинг по отсупам
 set foldenable
-set foldlevel=100
+set foldlevel=3
 set foldmethod=indent
 
 " Выключаем звуковое оповещение о достижении конца буффера, невозможности действия и т.д.
@@ -171,6 +171,20 @@ autocmd BufReadPost *
 
 " Открыть файл в Fierefox.
 nnoremap <f12> :exe ':silent !firefox %'<CR>
+
+" Map Y to act like D and C, i.e. to yank until EOL, rather than act as yy,
+" which is the default
+map Y y$
+
+" обнуление задержки для клавиши Esc
+set ttimeout ttimeoutlen=0 notimeout
+
+" nice wrapping for long lines with respect of
+" starging indent
+set breakindent
+
+" отключение перерисовки при выполнении макросов, повышает производительность
+set lazyredraw
 
 " PLUGINS 
 source $HOME/.vim/plugins.vim
