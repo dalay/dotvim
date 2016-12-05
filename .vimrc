@@ -170,7 +170,7 @@ autocmd BufReadPost *
   \ endif
 
 " Открыть файл в Fierefox.
-nnoremap <f12> :exe ':silent !firefox %'<CR>
+nnoremap <F12> :exe ':silent !firefox %'<CR>
 
 " Map Y to act like D and C, i.e. to yank until EOL, rather than act as yy,
 " which is the default
