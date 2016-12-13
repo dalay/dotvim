@@ -197,6 +197,13 @@ let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
     let g:jedi#rename_command = ''
 
 " " ------------- EasyMotion  ---------------------
+" отключаем зависимость от регистра
+let g:EasyMotion_smartcase = 1
+" отключаем тень (в момент выбора цели весь текст помечается как комментарий)
+let g:EasyMotion_do_shade = 0
+" какой группой подсвечивать цели
+" hi link EasyMotionTarget Search
+
 " " <Leader>f{char} to move to {char}
 " map  <Leader>f <Plug>(easymotion-bd-f)
 " nmap <Leader>f <Plug>(easymotion-overwin-f)
@@ -211,6 +218,7 @@ let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 " " Move to word
 " map  <Leader>w <Plug>(easymotion-bd-w)
 " nmap <Leader>w <Plug>(easymotion-overwin-w)
+
 
 " ========== sumpygump/php-documentor-vim =========
 au FileType php inoremap <buffer> <C-P> :call PhpDoc()<CR>

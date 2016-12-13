@@ -37,10 +37,19 @@ set ruler
 " Показывать незавершённые команды в статусбаре
 set showcmd
 
-" Фолдинг по отсупам
-set foldenable
-set foldlevel=3
-set foldmethod=indent
+" Old: Фолдинг по отсупам
+" set foldenable
+" set foldlevel=1
+" set foldmethod=indent
+
+"=============НАСТРОЙКИ СВОРАЧИВАНИЯ БЛОКОВ КОДА (фолдинг)=============
+" set foldenable " отклключить фолдинг по умолчанию
+" set foldmethod=syntax " определять блоки на основе синтаксиса файла
+"set foldmethod=indent " определять блоки на основе отступов
+" set foldnestmax=3       "deepest fold is 3 levels
+"set foldcolumn=10 " показать полосу для управления сворачиванием
+" set foldlevel=1 " Первый уровень вложенности открыт, остальные закрыты
+"set foldopen=all " автоматическое открытие сверток при заходе в них
 
 " Выключаем звуковое оповещение о достижении конца буффера, невозможности действия и т.д.
 set noerrorbells visualbell t_vb=
@@ -181,10 +190,12 @@ set ttimeout ttimeoutlen=0 notimeout
 
 " nice wrapping for long lines with respect of
 " starging indent
-set breakindent
+" set breakindent
 
 " отключение перерисовки при выполнении макросов, повышает производительность
 set lazyredraw
+
+nnoremap Q <Nop>
 
 " PLUGINS 
 source $HOME/.vim/plugins.vim
