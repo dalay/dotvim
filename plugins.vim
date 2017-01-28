@@ -32,6 +32,8 @@ Plugin 'evanmiller/nginx-vim-syntax'
 Plugin 'dzeban/vim-log-syntax'
 " Drupal 
 " Plugin 'git://drupalcode.org/project/vimrc.git', {'rtp': 'bundle/vim-plugin-for-drupal/'}
+Plugin 'jmcantrell/vim-virtualenv'
+
 
 call vundle#end()            		" required
 
@@ -123,6 +125,9 @@ au FileType python,html,htmldjango,php,css,javascript  map <F8> :SyntasticCheck<
 " let g:syntastic_php_phpcs_args="--standard=Drupal --extensions=php,module,inc,install,test,profile,theme"
 " Друпал - правили полегче.
 let g:syntastic_php_phpcs_args="--report=csv --standard=".expand('<sfile>:p:h')."/.vim/misc/phpcs-drupal-ruleset.xml"
+" Плагин для Pylintl. Адаптируем этот чекер под Django/
+let g:syntastic_python_pylint_args = "--load-plugins pylint_django"
+
 if has('statusline')
   set laststatus=2
   " Broken down into easily includeable segments
