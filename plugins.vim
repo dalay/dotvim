@@ -33,6 +33,7 @@ Plugin 'dzeban/vim-log-syntax'
 " Drupal 
 " Plugin 'git://drupalcode.org/project/vimrc.git', {'rtp': 'bundle/vim-plugin-for-drupal/'}
 Plugin 'jmcantrell/vim-virtualenv'
+Plugin 'chase/vim-ansible-yaml'
 
 
 call vundle#end()            		" required
@@ -235,7 +236,6 @@ let g:pdv_cfg_ClassTags = []
 "========== Vim-Commentary ==============
 autocmd FileType nginx setlocal commentstring=#\ %s
 
-
 "========== Jellybeans Theme  ==============
 let g:jellybeans_overrides = {
 \    'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
@@ -247,3 +247,6 @@ let g:jellybeans_overrides = {
 \              'attr': 'bold' },
 \    'Comment': { 'guifg': 'cccccc' },
 \}
+
+"========== Ansible ==============
+let g:ansible_options = {'ignore_blank_lines': 0}
