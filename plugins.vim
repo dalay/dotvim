@@ -11,10 +11,10 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'      " let Vundle manage Vundle, required
+
+" COMMON
 Plugin 'scrooloose/nerdtree'            " Project and file navigation
 Plugin 'majutsushi/tagbar'              " Class/module browser
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
 Plugin 'thinca/vim-quickrun'
 " Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/syntastic'
@@ -24,17 +24,26 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'ervandew/supertab'
-Plugin 'davidhalter/jedi-vim' "  highlighting, run and ipdb and more)
 Plugin 'easymotion/vim-easymotion'
-Plugin 'sumpygump/php-documentor-vim'
-" Syntax Highlighting
+
+" AIRLINE
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
+" SYNTAX HIGHLIGHTING
 Plugin 'evanmiller/nginx-vim-syntax'
 Plugin 'dzeban/vim-log-syntax'
-" Drupal 
-" Plugin 'git://drupalcode.org/project/vimrc.git', {'rtp': 'bundle/vim-plugin-for-drupal/'}
-Plugin 'jmcantrell/vim-virtualenv'
-Plugin 'chase/vim-ansible-yaml'
 
+" PHP 
+Plugin 'sumpygump/php-documentor-vim'
+" Plugin 'git://drupalcode.org/project/vimrc.git', {'rtp': 'bundle/vim-plugin-for-drupal/'}
+
+" Plugin 'chase/vim-ansible-yaml'
+" Plugin 'pearofducks/ansible-vim'
+
+" PYTHON
+Plugin 'davidhalter/jedi-vim' "  highlighting, run and ipdb and more)
+Plugin 'jmcantrell/vim-virtualenv'
 
 call vundle#end()            		" required
 
@@ -126,7 +135,8 @@ au FileType python,html,htmldjango,php,css,javascript  map <F8> :SyntasticCheck<
 " let g:syntastic_php_phpcs_args="--standard=Drupal --extensions=php,module,inc,install,test,profile,theme"
 " Друпал - правили полегче.
 let g:syntastic_php_phpcs_args="--report=csv --standard=".expand('<sfile>:p:h')."/.vim/misc/phpcs-drupal-ruleset.xml"
-" Плагин для Pylintl. Адаптируем этот чекер под Django/
+" Плагин для Pylintl. Адаптируем этот чекер под Django. Для того,
+" что бы завелось надо установить допольнительный пакет pylint-django.
 let g:syntastic_python_pylint_args = "--load-plugins pylint_django"
 
 if has('statusline')
