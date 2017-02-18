@@ -43,7 +43,7 @@ Plugin 'sumpygump/php-documentor-vim'
 
 " PYTHON
 Plugin 'davidhalter/jedi-vim' "  highlighting, run and ipdb and more)
-Plugin 'jmcantrell/vim-virtualenv'
+" Plugin 'jmcantrell/vim-virtualenv'
 
 call vundle#end()            		" required
 
