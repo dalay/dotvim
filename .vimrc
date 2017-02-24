@@ -179,7 +179,7 @@ autocmd BufReadPost *
   \ endif
 
 " Открыть файл в Fierefox.
-nnoremap <F12> :exe ':silent !firefox %'<CR>
+nnoremap <C-F12> :exe ':silent !firefox %'<CR>
 
 " Map Y to act like D and C, i.e. to yank until EOL, rather than act as yy,
 " which is the default
@@ -198,9 +198,9 @@ set lazyredraw
 nnoremap Q <Nop>
 
 " YAML filetype
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
-au BufNewFile,BufRead *.html set filetype=htmldjango
+au BufNewFile,BufRead *.html,*.j2 set filetype=htmldjango
 
 " PLUGINS 
 source $HOME/.vim/plugins.vim
