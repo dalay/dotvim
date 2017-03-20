@@ -16,7 +16,7 @@ Plugin 'gmarik/Vundle.vim'      " let Vundle manage Vundle, required
 Plugin 'scrooloose/nerdtree'            " Project and file navigation
 Plugin 'majutsushi/tagbar'              " Class/module browser
 Plugin 'thinca/vim-quickrun'
-Plugin 'ctrlpvim/ctrlp.vim'
+" Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'mhinz/vim-startify'             " Nice start screen
 Plugin 'tpope/vim-commentary'
@@ -136,6 +136,7 @@ au FileType python,html,htmldjango,php,css,javascript  map <F8> :SyntasticCheck<
 " let g:syntastic_php_phpcs_args="--standard=Drupal --extensions=php,module,inc,install,test,profile,theme"
 " Друпал - правили полегче.
 let g:syntastic_php_phpcs_args="--report=csv --standard=".expand('<sfile>:p:h')."/.vim/misc/phpcs-drupal-ruleset.xml"
+let g:syntastic_python_checkers = ['pylint']
 " Плагин для Pylintl. Адаптируем этот чекер под Django. Для того,
 " что бы завелось надо установить допольнительный пакет pylint-django.
 let g:syntastic_python_pylint_args = "--load-plugins pylint_django"
