@@ -46,6 +46,8 @@ Plugin 'davidhalter/jedi-vim' "  highlighting, run and ipdb and more)
 " Plugin 'jmcantrell/vim-virtualenv'
 Plugin 'othree/html5.vim'
 
+Plugin 'tell-k/vim-autopep8'
+
 call vundle#end()            		" required
 
 filetype plugin indent on
@@ -262,3 +264,7 @@ let g:jellybeans_overrides = {
 
 "========== Ansible ==============
 let g:ansible_options = {'ignore_blank_lines': 0}
+
+"========== AutoPep8 ==============
+" Disable show diff window
+let g:autopep8_disable_show_diff=1
