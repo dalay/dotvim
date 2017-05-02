@@ -106,7 +106,7 @@ set list listchars=tab:→\ ,trail:·
  augroup END
 
 " run shell script in shell
-au FileType sh,bash map <F8> :!bash %<CR>
+" au FileType sh,bash map <F8> :!bash %<CR>
 
 " Map ctrl-movement keys to window switching
 " map <C-k> <C-w><Up>
@@ -131,6 +131,7 @@ highlight clear SpellCap
 highlight SpellCap ctermfg=Blue
 highlight clear SpellLocal
 highlight SpellLocal ctermfg=Green
+
 
 " Turn backup off, since most stuff is in SVN, git et.c anyway...
 set nobackup
@@ -201,6 +202,12 @@ nnoremap Q <Nop>
 au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 au BufNewFile,BufRead *.html,*.j2 set filetype=htmldjango
+
+" Включаем проверку правописания при сохранении текстового файла.
+" au BufWrite *.txt set spell spelllang=ru
+
+" Автоматически включаем режим ввода, если файл пуст. Функция описана в functions.vim
+" au VimEnter * call InsertIfEmpty()
 
 " PLUGINS 
 source $HOME/.vim/plugins.vim

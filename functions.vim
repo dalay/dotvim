@@ -15,3 +15,17 @@ fun! DetectTemplate()
     endwhile
     set ft=html "default html
 endfun"'}}}'
+
+" Открывает файл в insert-режиме, если он(файл) пустой.
+function InsertIfEmpty()
+    if @% == ""
+        " No filename for current buffer
+        startinsert
+    elseif filereadable(@%) == 0
+        " File doesn't exist yet
+        startinsert
+    elseif line('$') == 1 && col('$') == 1
+        " File is empty
+        startinsert
+    endif
+endfunction
