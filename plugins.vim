@@ -232,6 +232,9 @@ let g:EasyMotion_do_shade = 0
 " " nmap s <Plug>(easymotion-overwin-f2)
 
 " " Move to line
+map <Leader><Leader>l <Plug>(easymotion-bd-jk)
+nmap <Leader><Leader>l <Plug>(easymotion-overwin-line)
+" " Move to line
 " map <Leader>L <Plug>(easymotion-bd-jk)
 " nmap <Leader>L <Plug>(easymotion-overwin-line)
 
