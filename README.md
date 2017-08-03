@@ -1,6 +1,4 @@
-# dotvim
-Vim config
-## Install commands
+## Installation Commands
 - cd ~
 - git clone https://github.com/dalay/dotvim.git .vim
 - cd .vim
