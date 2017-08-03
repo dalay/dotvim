@@ -6,3 +6,5 @@
 - cd ~
 - ln -s .vim/.vimrc .vimrc
 - vim +PluginInstall
+## Or run (if already cloned)
+~/.vim/install_config.sh
