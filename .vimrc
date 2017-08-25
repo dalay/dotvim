@@ -208,6 +208,10 @@ au BufNewFile,BufRead *.html,*.j2 set filetype=htmldjango
 
 " Автоматически включаем режим ввода, если файл пуст. Функция описана в functions.vim
 " au VimEnter * call InsertIfEmpty()
+"
+" This will remap the "+y (copy) and "+p (paste) commands to use xclip.
+vmap "+y :!xclip -f -sel clip<CR>
+map "+p :r!xclip -o -sel clip<CR>
 
 " PLUGINS 
 source $HOME/.vim/plugins.vim
