@@ -141,7 +141,7 @@ let g:syntastic_php_phpcs_args="--report=csv --standard=".expand('<sfile>:p:h').
 let g:syntastic_python_checkers = ['pylint']
 " Плагин для Pylintl. Адаптируем этот чекер под Django. Для того,
 " что бы завелось надо установить допольнительный пакет pylint-django.
-let g:syntastic_python_pylint_args = "--load-plugins pylint_django --ignored-classes=Manager,File"
+let g:syntastic_python_pylint_args = "--load-plugins pylint_django --disable=django-not-available --ignored-classes=Manager,File"
 
 if has('statusline')
   set laststatus=2
