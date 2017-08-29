@@ -281,11 +281,20 @@ augroup neomake_lints
     autocmd!
     autocmd BufWritePost * Neomake
 augroup END
+set statusline+=\ %#ErrorMsg#%{neomake#statusline#QflistStatus('qf:\ ')}
+" let g:neomake_logfile = '/tmp/neomake.log'
+let g:neomake_python_enabled_makers = ['pyflakes', 'pylint']
+" let g:neomake_python_enabled_makers = ['pylint']
 let g:neomake_open_list = 2
+let g:neomake_list_height = 5
 let g:neomake_echo_current_error=1
 let g:neomake_python_pylint_args = [
+        \ '--rcfile=' . expand("<sfile>:p:h") . '/misc/pylintrc',
         \ '--load-plugins=pylint_django',
         \ '--disable=django-not-available', 
         \ '--ignored-classes=Manager,File',
-        \ '--disable=C',
-    \ ]
+		\ '--output-format=text',
+		\ '--msg-template="{path}:{line}:{column}:{C}: [{symbol}] {msg} [{msg_id}]"',
+		\ '--reports=no',
+		\ '--disable=C,W,R0901',
+        \ ]
