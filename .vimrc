@@ -73,8 +73,13 @@ set softtabstop=4
 set tabstop=4
 
 " Формат строки состояния. Альтернативные варианты настройки `:h statusline`
-"set statusline=%&lt;%f%h%m%r\ %b\ %{&amp;encoding}\ 0x\ \ %l,%c%V\ %P
-set laststatus=2
+" set laststatus=2
+" set statusline=
+" Broken down into easily includeable segments
+" set statusline+=%<%f\ " Filename
+" set statusline+=%w%h%m%r " Options
+" set statusline+=\ [%{&ff}/%Y] " filetype
+" set statusline+=\ [%{getcwd()}] " current dir
 
 " Включаем "умные" отступы, например, авто отступ после `{`
 set smartindent

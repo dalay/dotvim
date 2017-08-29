@@ -16,12 +16,7 @@ Plugin 'gmarik/Vundle.vim'      " let Vundle manage Vundle, required
 Plugin 'scrooloose/nerdtree'            " Project and file navigation
 Plugin 'majutsushi/tagbar'              " Class/module browser
 Plugin 'thinca/vim-quickrun'
-" Plugin 'ctrlpvim/ctrlp.vim'
-
-" Plugin 'scrooloose/syntastic'
-" Plugin 'w0rp/ale' "Syntastic alternative
 Plugin 'neomake/neomake' "Syntastic alternative
-
 Plugin 'mhinz/vim-startify'             " Nice start screen
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-repeat'
@@ -33,6 +28,7 @@ Plugin 'easymotion/vim-easymotion'
 " AIRLINE
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'edkolev/tmuxline.vim'
 
 " SYNTAX HIGHLIGHTING
 Plugin 'evanmiller/nginx-vim-syntax'
@@ -79,7 +75,9 @@ map <F4> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1 " автофокус на Tagbar при открытии
 
 
-" --------== Airline ==-------------------
+" == Airline ==-------------------
+set laststatus=2
+set linespace=0
 " let g:airline_theme = 'jellybeans'
 " Set custom left separator 
 let g:airline_left_sep = '▶'
@@ -89,6 +87,7 @@ let g:airline_right_sep = '◀'
 let g:airline#extensions#tabline#enabled = 1
 " Don't display buffers in tab-bar with single tab 
 let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#keymap#enabled = 0
 " Display only filename in tab 
 let g:airline#extensions#tabline#fnamemod = ':t'
 " Don't display encoding 
@@ -124,43 +123,6 @@ let g:quickrun_config = {
 " "---------------------------------------------------------
 
 
-" Syntastic ==================================================
-" let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes':   [],'passive_filetypes': [] }
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-" Automatic checks at open and save
-let g:syntastic_check_on_open = 0
-" let g:syntastic_check_on_wq = 0
-" let g:syntastic_check_on_w = 0
-let g:syntastic_quiet_messages={'level':'warnings'}
-let g:syntastic_loc_list_height = 5
-" au FileType python,html,htmldjango,php,css,javascript  map <F8> :SyntasticCheck<CR> 
-" Друпал - строгие правила.
-" let g:syntastic_php_phpcs_args="--standard=Drupal --extensions=php,module,inc,install,test,profile,theme"
-" Друпал - правили полегче.
-let g:syntastic_php_phpcs_args="--report=csv --standard=".expand('<sfile>:p:h')."/.vim/misc/phpcs-drupal-ruleset.xml"
-let g:syntastic_python_checkers = ['pylint']
-" Плагин для Pylintl. Адаптируем этот чекер под Django. Для того,
-" что бы завелось надо установить допольнительный пакет pylint-django.
-let g:syntastic_python_pylint_args = "--load-plugins pylint_django --disable=django-not-available --ignored-classes=Manager,File"
-
-if has('statusline')
-  set laststatus=2
-  " Broken down into easily includeable segments
-  set statusline=%<%f\ " Filename
-  set statusline+=%w%h%m%r " Options
-  set statusline+=\ [%{&ff}/%Y] " filetype
-  set statusline+=\ [%{getcwd()}] " current dir
-  set statusline+=%#warningmsg#
-  set statusline+=%{SyntasticStatuslineFlag()}
-  set statusline+=%*
-  let g:syntastic_enable_signs=1
-  set statusline+=%=%-14.(%l,%c%V%)\ %p%% " Right aligned file nav info
-endif
-
 " ----- Srartify-----------------
 map <silent> <leader>s  :Startify<CR>
 let g:startify_bookmarks = ['~/.bashrc', '~/.vimrc', '~/.vim/plugins.vim', '~/scripts/']
@@ -184,37 +146,12 @@ let g:startify_session_autoload       = 1
 let g:startify_session_persistence    = 1
 let g:startify_session_delete_buffers = 1
 let g:startify_session_dir = '~/.vim/session'
-
- 
  
 
 " ----- SuperTab -----------------
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 
 
-" ------------- Python-mode ---------------------
-    " let g:pymode_rope_lookup_project = 0
-    " au FileType python map <F8> :PymodeLint<CR>
-    " au FileType python map <F9> :PymodeLintAuto<CR>
-    " " отключаем автокомплит по коду (у нас вместо него используется jedi-vim)
-    " " let g:pymode_rope = 0
-    " " let g:pymode_rope_completion = 0
-    " " let g:pymode_rope_complete_on_dot = 0
-    " " документация
-    " let g:pymode_doc = 0
-    " " let g:pymode_doc_key = 'K'
-    " " проверка кода
-    " let g:pymode_lint = 1
-    " let g:pymode_lint_checker = "pyflakes,pep8"
-    " let g:pymode_lint_ignore="E501,W601,C0110"
-    " " провека кода после сохранения
-    " let g:pymode_lint_on_write = 0
-    " " поддержка virtualenv
-    " let g:pymode_virtualenv = 1
-    " " отключить autofold по коду
-    " let g:pymode_folding = 0
-    " " возможность запускать код
-    " let g:pymode_run = 0
 
 " ------------- Jedi-Vim  ---------------------
     let g:jedi#rename_command = ''
@@ -281,10 +218,10 @@ augroup neomake_lints
     autocmd!
     autocmd BufWritePost * Neomake
 augroup END
-set statusline+=\ %#ErrorMsg#%{neomake#statusline#QflistStatus('qf:\ ')}
 " let g:neomake_logfile = '/tmp/neomake.log'
-let g:neomake_python_enabled_makers = ['pyflakes', 'pylint']
 " let g:neomake_python_enabled_makers = ['pylint']
+" set statusline+=\ %#ErrorMsg#%{neomake#statusline#QflistStatus('qf:\ ')}
+let g:neomake_python_enabled_makers = ['pyflakes', 'pylint']
 let g:neomake_open_list = 2
 let g:neomake_list_height = 5
 let g:neomake_echo_current_error=1
@@ -298,3 +235,13 @@ let g:neomake_python_pylint_args = [
 		\ '--reports=no',
 		\ '--disable=C,W,R0901',
         \ ]
+" " Друпал - строгие правила.
+" let g:neomake_php_phpcs_args = [
+"             \ '--standard=Drupal',
+"             \ '--extensions=php,module,inc,install,test,profile,theme',
+"             \]
+" Друпал - правили полегче.
+let g:neomake_php_phpcs_args = [
+            \ '--report=csv',
+            \ '--standard='.expand("<sfile>:p:h").'/.vim/misc/phpcs-drupal-ruleset.xml',
+            \ ]
