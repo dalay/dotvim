@@ -13,6 +13,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'      " let Vundle manage Vundle, required
 
 " COMMON
+Plugin 'nanotech/jellybeans.vim'
 Plugin 'scrooloose/nerdtree'            " Project and file navigation
 Plugin 'majutsushi/tagbar'              " Class/module browser
 Plugin 'thinca/vim-quickrun'
@@ -75,10 +76,12 @@ map <F4> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1 " автофокус на Tagbar при открытии
 
 
+
 " == Airline ==-------------------
 set laststatus=2
 set linespace=0
-" let g:airline_theme = 'jellybeans'
+set noshowmode
+let g:airline_theme = 'jellybeans'
 " Set custom left separator 
 let g:airline_left_sep = '▶'
 " Set custom right separator 
@@ -194,16 +197,7 @@ let g:pdv_cfg_ClassTags = []
 autocmd FileType nginx setlocal commentstring=#\ %s
 
 "========== Jellybeans Theme  ==============
-let g:jellybeans_overrides = {
-\    'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
-\}
-let g:jellybeans_use_term_italics = 1
-let g:jellybeans_overrides = {
-\    'Todo': { 'guifg': '303030', 'guibg': 'f0f000',
-\              'ctermfg': 'Black', 'ctermbg': 'Yellow',
-\              'attr': 'bold' },
-\    'Comment': { 'guifg': 'cccccc' },
-\}
+" let g:jellybeans_use_term_italics = 1
 
 "========== Ansible ==============
 let g:ansible_options = {'ignore_blank_lines': 0}

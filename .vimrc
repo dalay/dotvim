@@ -1,17 +1,11 @@
 " Включаем несовместимость настроек с Vi
 set nocompatible
-
 " set leaser key
 let mapleader=","
-
 " Use 256 colors in vim 
 " some plugins not work without it 
 set t_Co=256
 set background=dark
-" Включить подсветку синтаксиса и задаем цветовую схему по-умолчанию
-syntax on
-colorscheme jellybeans
-
 " Кодировка текста по умолчанию utf8
 set termencoding=utf8
 set fileencodings=utf-8,cp1251,koi8-r,cp866
@@ -220,3 +214,7 @@ map "+p :r!xclip -o -sel clip<CR>
 
 " PLUGINS 
 source $HOME/.vim/plugins.vim
+
+" Включить подсветку синтаксиса и задаем цветовую схему по-умолчанию
+syntax on
+colorscheme jellybeans
