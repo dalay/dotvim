@@ -17,7 +17,11 @@ Plugin 'scrooloose/nerdtree'            " Project and file navigation
 Plugin 'majutsushi/tagbar'              " Class/module browser
 Plugin 'thinca/vim-quickrun'
 " Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'scrooloose/syntastic'
+
+" Plugin 'scrooloose/syntastic'
+" Plugin 'w0rp/ale' "Syntastic alternative
+Plugin 'neomake/neomake' "Syntastic alternative
+
 Plugin 'mhinz/vim-startify'             " Nice start screen
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-repeat'
@@ -48,7 +52,7 @@ Plugin 'othree/html5.vim'
 
 Plugin 'tell-k/vim-autopep8'
 
-call vundle#end()            		" required
+call vundle#end()                   " required
 
 filetype plugin indent on
 
@@ -133,7 +137,7 @@ let g:syntastic_check_on_open = 0
 " let g:syntastic_check_on_w = 0
 let g:syntastic_quiet_messages={'level':'warnings'}
 let g:syntastic_loc_list_height = 5
-au FileType python,html,htmldjango,php,css,javascript  map <F8> :SyntasticCheck<CR> 
+" au FileType python,html,htmldjango,php,css,javascript  map <F8> :SyntasticCheck<CR> 
 " Друпал - строгие правила.
 " let g:syntastic_php_phpcs_args="--standard=Drupal --extensions=php,module,inc,install,test,profile,theme"
 " Друпал - правили полегче.
@@ -156,7 +160,6 @@ if has('statusline')
   let g:syntastic_enable_signs=1
   set statusline+=%=%-14.(%l,%c%V%)\ %p%% " Right aligned file nav info
 endif
-
 
 " ----- Srartify-----------------
 map <silent> <leader>s  :Startify<CR>
@@ -271,3 +274,18 @@ let g:ansible_options = {'ignore_blank_lines': 0}
 "========== AutoPep8 ==============
 " Disable show diff window
 let g:autopep8_disable_show_diff=1
+
+
+"========== NeoMake ==============
+augroup neomake_lints
+    autocmd!
+    autocmd BufWritePost * Neomake
+augroup END
+let g:neomake_open_list = 2
+let g:neomake_echo_current_error=1
+let g:neomake_python_pylint_args = [
+        \ '--load-plugins=pylint_django',
+        \ '--disable=django-not-available', 
+        \ '--ignored-classes=Manager,File',
+        \ '--disable=C',
+    \ ]
