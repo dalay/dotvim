@@ -25,10 +25,14 @@ Plugin 'tpope/vim-surround'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'ervandew/supertab'
 Plugin 'easymotion/vim-easymotion'
+" Peekaboo extends " and @ in normal mode and <CTRL-R> in insert mode so you
+" can see the contents of the registers."
+Plugin 'junegunn/vim-peekaboo'
 
 " AIRLINE
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+" Plugin 'itchyny/lightline.vim'
 Plugin 'edkolev/tmuxline.vim'
 
 " SYNTAX HIGHLIGHTING
@@ -39,6 +43,7 @@ Plugin 'dzeban/vim-log-syntax'
 Plugin 'sumpygump/php-documentor-vim'
 " Plugin 'git://drupalcode.org/project/vimrc.git', {'rtp': 'bundle/vim-plugin-for-drupal/'}
 
+" ANSIBLE
 " Plugin 'chase/vim-ansible-yaml'
 " Plugin 'pearofducks/ansible-vim'
 
@@ -224,10 +229,10 @@ let g:neomake_python_pylint_args = [
         \ '--load-plugins=pylint_django',
         \ '--disable=django-not-available', 
         \ '--ignored-classes=Manager,File',
-		\ '--output-format=text',
-		\ '--msg-template="{path}:{line}:{column}:{C}: [{symbol}] {msg} [{msg_id}]"',
-		\ '--reports=no',
-		\ '--disable=C,W,R0901',
+        \ '--output-format=text',
+        \ '--msg-template="{path}:{line}:{column}:{C}: [{symbol}] {msg} [{msg_id}]"',
+        \ '--reports=no',
+        \ '--disable=C,W,R0901',
         \ ]
 " " Друпал - строгие правила.
 " let g:neomake_php_phpcs_args = [
@@ -239,3 +244,52 @@ let g:neomake_php_phpcs_args = [
             \ '--report=csv',
             \ '--standard='.expand("<sfile>:p:h").'/.vim/misc/phpcs-drupal-ruleset.xml',
             \ ]
+
+
+" -+- lightline -------------
+
+let g:lightline = {
+    \ 'colorscheme': 'dalay',
+    \ 'component': {
+    \   'readonly': '%{&readonly?"RO":"W"}',
+    \   'modified': '%{&modified?"+":""}',
+    \ },
+    \ 'component_function': {
+    \   'cwd': 'CwdFunc',
+    \   'fsz': 'FileSize',
+    \ },
+    \ 'active': {
+    \   'left':  [ ['mode', 'paste'], ['readonly'], ['cwd'] ],
+    \   'right': [ ['percent'], ['fileformat'], ['fileencoding'], ['fsz'], ['filetype'], ['filename'], ['modified'] ]
+    \ },
+    \ 'inactive': {
+    \   'left':  [ ['mode', 'paste'], ['readonly'], ['cwd'] ],
+    \   'right': [ ['percent'], ['fileformat'], ['fileencoding'], ['fsz'], ['filetype'], ['filename'], ['modified'] ]
+    \ },
+    \ 'separator':    { 'left': '',  'right': ''  },
+    \ 'subseparator': { 'left': '|', 'right': '|' },
+    \ 'tabline': {
+            \ 'left': [ [ 'tabs' ] ],
+            \ 'middle': [ [ '' ] ] ,
+            \ 'right': [ [ '' ] ] },
+    \ }
+
+function! CwdFunc()
+    let cwd = substitute(getcwd(), expand($HOME), '~', '')
+    return cwd
+endfunction
+
+function! FileSize()
+    let bytes = getfsize(expand("%:p"))
+    if bytes <= 0
+        return ""
+    endif
+    if bytes < 1024
+        return bytes
+    elseif bytes > (1024*1024)
+        return (bytes / (1024*1024)) . "Mb"
+    else
+        return (bytes / 1024) . "K"
+    endif
+endfunction
+" ---------------------------

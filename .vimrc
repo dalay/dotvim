@@ -120,6 +120,9 @@ vmap <Leader>y :w! /tmp/.vim_buffer<CR>
 nmap <Leader>y :.w! /tmp/.vim_buffer<CR>
 " "paste the contents of the buffer file
 nmap <Leader>p :r /tmp/.vim_buffer<CR>
+" move among buffers with gb and gB, like tab gt and gT
+map gb :bnext<CR>
+map gB :bprev<CR>
 
 " Spell-Checker
 set spelllang=ru
@@ -160,6 +163,15 @@ set linebreak
 
 " Paste mode toggle
 set pastetoggle=<F2>
+" -+- Autopaste:
+let &t_SI .= "\<Esc>[?2004h"
+let &t_EI .= "\<Esc>[?2004l"
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+function! XTermPasteBegin()
+  set pastetoggle=<Esc>[201~
+  set paste
+  return ""
+endfunction
 
 " Шаблоны для разных типов файлов
 autocmd BufNewFile  *.py   0r ~/.vim/templates/python3 | 4
@@ -209,8 +221,8 @@ au BufNewFile,BufRead *.html,*.j2 set filetype=htmldjango
 " au VimEnter * call InsertIfEmpty()
 "
 " This will remap the "+y (copy) and "+p (paste) commands to use xclip.
-vmap "+y :!xclip -f -sel clip<CR>
-map "+p :r!xclip -o -sel clip<CR>
+" vmap "+y :!xclip -f -sel clip<CR>
+" map "+p :r!xclip -o -sel clip<CR>
 
 " PLUGINS 
 source $HOME/.vim/plugins.vim
