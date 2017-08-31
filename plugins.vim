@@ -53,7 +53,7 @@ let g:quickrun_config = {
 " \}
 
 
-"NeoMake
+" NeoMake
 Plugin 'neomake/neomake'                "Syntastic alternative
 augroup neomake_lints
     autocmd!
@@ -74,7 +74,7 @@ let g:neomake_python_pylint_args = [
         \ '--output-format=text',
         \ '--msg-template="{path}:{line}:{column}:{C}: [{symbol}] {msg} [{msg_id}]"',
         \ '--reports=no',
-        \ '--disable=C,W,R0901',
+        \ '--disable=C,W,R0901,R0201',
         \ ]
 " " Друпал - строгие правила.
 " let g:neomake_php_phpcs_args = [
@@ -237,7 +237,7 @@ let g:airline#extensions#tabline#tab_nr_type = 1
 " endfunction
 
 
-Plugin 'edkolev/tmuxline.vim'
+" Plugin 'edkolev/tmuxline.vim'
 
 " SYNTAX HIGHLIGHTING
 
@@ -267,7 +267,10 @@ let g:ansible_options = {'ignore_blank_lines': 0}
 " Jedi-Vim
 Plugin 'davidhalter/jedi-vim' "  highlighting, run and ipdb and more)
 let g:jedi#rename_command = ''
-" Plugin 'jmcantrell/vim-virtualenv'
+" Jedi automatically starts the completion, if you type a dot, e.g. str., if you don't want this:
+let g:jedi#popup_on_dot = 0
+" Jedi selects the first line of the completion menu: for a better typing-flow and usually saves one keypress.
+let g:jedi#popup_select_first = 0
 
 
 Plugin 'othree/html5.vim'
@@ -282,6 +285,7 @@ Plugin 'othree/html5.vim'
 " Autoformat 
 Plugin 'Chiel92/vim-autoformat'
 let g_autoformat_verbosemode=1
+nmap <F8> :Autoformat<CR>:w<CR>
 
 call vundle#end()                   " required
 

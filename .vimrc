@@ -1,5 +1,3 @@
-" PLUGINS 
-source $HOME/.vim/plugins.vim
 
 " Включить подсветку синтаксиса и задаем цветовую схему по-умолчанию
 syntax on
@@ -110,8 +108,6 @@ set list listchars=tab:→\ ,trail:·
      autocmd FileType python,javascript,php match Excess /\%80v.*/
  augroup END
 
-" run shell script in shell
-" au FileType sh,bash map <F8> :!bash %<CR>
 
 " Map ctrl-movement keys to window switching
 " map <C-k> <C-w><Up>
@@ -169,15 +165,6 @@ set linebreak
 
 " Paste mode toggle
 set pastetoggle=<F2>
-" -+- Autopaste:
-let &t_SI .= "\<Esc>[?2004h"
-let &t_EI .= "\<Esc>[?2004l"
-inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
-function! XTermPasteBegin()
-  set pastetoggle=<Esc>[201~
-  set paste
-  return ""
-endfunction
 
 " Шаблоны для разных типов файлов
 autocmd BufNewFile  *.py   0r ~/.vim/templates/python3 | 4
@@ -230,3 +217,5 @@ au BufNewFile,BufRead *.html,*.j2 set filetype=htmldjango
 " vmap "+y :!xclip -f -sel clip<CR>
 " map "+p :r!xclip -o -sel clip<CR>
 
+" PLUGINS 
+source $HOME/.vim/plugins.vim
