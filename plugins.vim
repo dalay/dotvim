@@ -13,10 +13,6 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'      " let Vundle manage Vundle, required
 
 
-" COMMON
-Plugin 'nanotech/jellybeans.vim'
-
-
 " NerdTreee 
 Plugin 'scrooloose/nerdtree'            " Project and file navigation
 " показать NERDTree на ...
