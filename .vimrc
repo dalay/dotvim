@@ -1,3 +1,5 @@
+" PLUGINS 
+source $HOME/.vim/plugins.vim
 
 " Включить подсветку синтаксиса и задаем цветовую схему по-умолчанию
 syntax on
@@ -217,5 +219,3 @@ au BufNewFile,BufRead *.html,*.j2 set filetype=htmldjango
 " vmap "+y :!xclip -f -sel clip<CR>
 " map "+p :r!xclip -o -sel clip<CR>
 
-" PLUGINS 
-source $HOME/.vim/plugins.vim

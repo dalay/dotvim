@@ -149,6 +149,10 @@ nmap <Leader><Leader>l <Plug>(easymotion-overwin-line)
 " map  <Leader>w <Plug>(easymotion-bd-w)
 " nmap <Leader>w <Plug>(easymotion-overwin-w)
 
+"" ctrlp
+Plugin 'ctrlpvim/ctrlp.vim'
+let g:ctrlp_map = '<c-p>'          " открываем нажатием Ctrl+P
+let g:ctrlp_cmd = 'CtrlPBuffer'    " показывать список буферов по-умолчанию
 
 " Peekaboo extends " and @ in normal mode and <CTRL-R> in insert mode so you
 " can see the contents of the registers."
