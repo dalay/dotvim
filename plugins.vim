@@ -37,6 +37,7 @@ Plugin 'majutsushi/tagbar'              " Class/module browser
 map <F4> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1 " автофокус на Tagbar при открытии
 
+Plugin 'terryma/vim-multiple-cursors'
 
 " QuickRun
 Plugin 'thinca/vim-quickrun'
