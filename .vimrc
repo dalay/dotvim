@@ -152,7 +152,7 @@ set scrolloff=3     " keep 3 lines when scrolling
 " Omnicomplete
 set completeopt-=preview
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 
 " Disable arrow keys
 noremap <Up> <Nop>
@@ -218,4 +218,7 @@ au BufNewFile,BufRead *.html,*.j2 set filetype=htmldjango
 " This will remap the "+y (copy) and "+p (paste) commands to use xclip.
 " vmap "+y :!xclip -f -sel clip<CR>
 " map "+p :r!xclip -o -sel clip<CR>
+
+" PLUGINS 
+source $HOME/.vim/plugins.vim
 
