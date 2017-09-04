@@ -252,12 +252,19 @@ Plugin 'dzeban/vim-log-syntax'
 " PHP 
 
 " php-documentor
-Plugin 'sumpygump/php-documentor-vim'
-au FileType php inoremap <buffer> <C-P> :call PhpDoc()<CR>
-au FileType php nnoremap <buffer> <C-P> :call PhpDoc()<CR>
-au FileType php vnoremap <buffer> <C-P> :call PhpDocRange()<CR>
-let g:pdv_cfg_Author = 'Dalay <dalay@drupalka.ru>'
-let g:pdv_cfg_ClassTags = []
+" Plugin 'sumpygump/php-documentor-vim'
+Plugin 'Rican7/php-doc-modded'
+au FileType php nnoremap <leader><leader>p :call PhpDocSingle()<CR> 
+au FileType php vnoremap <leader><leader>p :call PhpDocRange()<CR>
+" au FileType php inoremap <buffer> <C-P> :call PhpDoc()<CR>
+" au FileType php nnoremap <buffer> <C-P> :call PhpDoc()<CR>
+" au FileType php vnoremap <buffer> <C-P> :call PhpDocRange()<CR>
+"
+" au FileType php inoremap <buffer> <C-P> :call PhpDoc()<CR>
+" au FileType php nnoremap <buffer> <C-P> :call PhpDoc()<CR>
+" au FileType php vnoremap <buffer> <C-P> :call PhpDocRange()<CR>
+" let g:pdv_cfg_Author = 'Dalay <dalay@drupalka.ru>'
+" let g:pdv_cfg_ClassTags = []
 
 
 " Plugin 'git://drupalcode.org/project/vimrc.git', {'rtp': 'bundle/vim-plugin-for-drupal/'}
