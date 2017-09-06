@@ -6,8 +6,6 @@ syntax on
 colorscheme jellybeans
 " Включаем несовместимость настроек с Vi
 set nocompatible
-" set leaser key
-let mapleader=","
 " Use 256 colors in vim 
 " some plugins not work without it 
 set t_Co=256
@@ -24,8 +22,6 @@ set incsearch
 
 " Подсвечивание результатов поиска
 set hlsearch
-" убираем выделение найденного по нажатию на пробел.
-nnoremap <silent> <Space> :nohl<Bar>:echo<CR>
 
 " умная зависимость от регистра. Детали `:h smartcase`
 set ignorecase
@@ -111,22 +107,6 @@ set list listchars=tab:→\ ,trail:·
  augroup END
 
 
-" Map ctrl-movement keys to window switching
-" map <C-k> <C-w><Up>
-" map <C-j> <C-w><Down>
-" map <C-l> <C-w><Right>
-" map <C-h> <C-w><Left>
-
-" Allow to copy/paste between VIM instances
-" "copy the current visual selection to /tmp/.vim_buffer
-vmap <Leader>y :w! /tmp/.vim_buffer<CR>
-" "copy the current line to the buffer file if no visual selection
-nmap <Leader>y :.w! /tmp/.vim_buffer<CR>
-" "paste the contents of the buffer file
-nmap <Leader>p :r /tmp/.vim_buffer<CR>
-" move among buffers with gb and gB, like tab gt and gT
-map gb :bnext<CR>
-map gB :bprev<CR>
 
 " Spell-Checker
 set spelllang=ru
@@ -154,11 +134,6 @@ set completeopt-=preview
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 " autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 
-" Disable arrow keys
-noremap <Up> <Nop>
-noremap <Down> <Nop>
-noremap <Left> <Nop>
-noremap <Right> <Nop>
 
 " Включаем перенос строк (set nowrap отключает перенос строк)
 set wrap
@@ -185,12 +160,7 @@ autocmd BufReadPost *
   \   exe "normal! g`\"" |
   \ endif
 
-" Открыть файл в Fierefox.
-nnoremap <C-F12> :exe ':silent !firefox %'<CR>
 
-" Map Y to act like D and C, i.e. to yank until EOL, rather than act as yy,
-" which is the default
-map Y y$
 
 " обнуление задержки для клавиши Esc
 set ttimeout ttimeoutlen=0 notimeout
@@ -202,8 +172,6 @@ set ttimeout ttimeoutlen=0 notimeout
 " отключение перерисовки при выполнении макросов, повышает производительность
 set lazyredraw
 
-nnoremap Q <Nop>
-
 " YAML filetype
 au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
@@ -214,7 +182,42 @@ au BufNewFile,BufRead *.html,*.j2 set filetype=htmldjango
 
 " Автоматически включаем режим ввода, если файл пуст. Функция описана в functions.vim
 " au VimEnter * call InsertIfEmpty()
-"
+
+" KEYMAPS
+nnoremap Q <Nop>
+" set leaser key
+let mapleader=","
+" Map Y to act like D and C, i.e. to yank until EOL, rather than act as yy,
+" which is the default
+map Y y$
+" Открыть файл в Fierefox.
+nnoremap <C-F12> :exe ':silent !firefox %'<CR>
+" Disable arrow keys
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+" убираем выделение найденного по нажатию на пробел.
+nnoremap <silent> <Space> :nohl<Bar>:echo<CR>
+" Map ctrl-movement keys to window switching
+" map <C-k> <C-w><Up>
+" map <C-j> <C-w><Down>
+" map <C-l> <C-w><Right>
+" map <C-h> <C-w><Left>
+" Allow to copy/paste between VIM instances
+" "copy the current visual selection to /tmp/.vim_buffer
+vmap <Leader>y :w! /tmp/.vim_buffer<CR>
+" "copy the current line to the buffer file if no visual selection
+nmap <Leader>y :.w! /tmp/.vim_buffer<CR>
+" "paste the contents of the buffer file
+nmap <Leader>p :r /tmp/.vim_buffer<CR>
+" move among buffers with gb and gB, like tab gt and gT
+map gb :bnext<CR>
+map gB :bprev<CR>
+" Новая вкладка
+nmap t :tabnew<CR>
+" Закрыть вкладку
+nmap <C-x> :tabclose<CR>
 " This will remap the "+y (copy) and "+p (paste) commands to use xclip.
 " vmap "+y :!xclip -f -sel clip<CR>
 " map "+p :r!xclip -o -sel clip<CR>

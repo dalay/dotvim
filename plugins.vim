@@ -12,7 +12,6 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'      " let Vundle manage Vundle, required
 
-
 " NerdTreee 
 Plugin 'scrooloose/nerdtree'            " Project and file navigation
 " показать NERDTree на ...
@@ -31,7 +30,6 @@ let NERDTreeQuitOnOpen=1
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 nmap <C-\> :NERDTreeFind<CR>
 
-
 " TagBar
 Plugin 'majutsushi/tagbar'              " Class/module browser
 map <F4> :TagbarToggle<CR>
@@ -47,12 +45,6 @@ let g:quickrun_config = {
 \       "outputter/buffer/split" : ":rightbelow 40vsp",
 \   },
 \}
-" let g:quickrun_config = {
-" \   "_" : {
-" \       "outputter" : "message",
-" \   },
-" \}
-
 
 " NeoMake
 Plugin 'neomake/neomake'                "Syntastic alternative
@@ -61,8 +53,6 @@ augroup neomake_lints
     autocmd BufWritePost * Neomake
 augroup END
 " let g:neomake_logfile = '/tmp/neomake.log'
-" let g:neomake_python_enabled_makers = ['pylint']
-" set statusline+=\ %#ErrorMsg#%{neomake#statusline#QflistStatus('qf:\ ')}
 let g:neomake_python_enabled_makers = ['pyflakes', 'pylint']
 let g:neomake_open_list = 2
 let g:neomake_list_height = 5
@@ -88,7 +78,6 @@ let g:neomake_php_phpcs_args = [
             \ '--standard='.expand("<sfile>:p:h").'/.vim/misc/phpcs-drupal-ruleset.xml',
             \ ]
 
-
 " Srartify
 Plugin 'mhinz/vim-startify'             " Nice start screen
 map <silent> <leader>s  :Startify<CR>
@@ -104,31 +93,30 @@ let g:startify_list_order = [
 \ 'bookmarks',
 \ ]
 let g:startify_files_number = 7
-
 let g:startify_enable_special         = 0
 let g:startify_relative_path          = 1
 let g:startify_change_to_dir          = 1
-
 let g:startify_session_autoload       = 1
 let g:startify_session_persistence    = 1
 let g:startify_session_delete_buffers = 1
 let g:startify_session_dir = '~/.vim/session'
 
+" NERDCommenter
+Plugin 'scrooloose/nerdcommenter'
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
 
 " Vim-Commentary
-Plugin 'tpope/vim-commentary'
-autocmd FileType nginx setlocal commentstring=#\ %s
-
+" Plugin 'tpope/vim-commentary'
+" autocmd FileType nginx setlocal commentstring=#\ %s
 
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'jiangmiao/auto-pairs'
 
-
 " SuperTab
 Plugin 'ervandew/supertab'
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
-
 
 " EasyMotion
 Plugin 'easymotion/vim-easymotion'
@@ -263,7 +251,7 @@ au FileType php vnoremap <leader><leader>p :call PhpDocRange()<CR>
 " ANSIBLE
 " Plugin 'chase/vim-ansible-yaml'
 " Plugin 'pearofducks/ansible-vim'
-let g:ansible_options = {'ignore_blank_lines': 0}
+" let g:ansible_options = {'ignore_blank_lines': 0}
 
 " PYTHON
 
