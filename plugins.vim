@@ -101,14 +101,10 @@ let g:startify_session_persistence    = 1
 let g:startify_session_delete_buffers = 1
 let g:startify_session_dir = '~/.vim/session'
 
-" NERDCommenter
-Plugin 'scrooloose/nerdcommenter'
-" Add spaces after comment delimiters by default
-let g:NERDSpaceDelims = 1
-
 " Vim-Commentary
-" Plugin 'tpope/vim-commentary'
-" autocmd FileType nginx setlocal commentstring=#\ %s
+Plugin 'tpope/vim-commentary'
+autocmd FileType nginx setlocal commentstring=#\ %s
+autocmd FileType php setlocal commentstring=//\ %s
 
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
