@@ -236,13 +236,8 @@ Plugin 'dzeban/vim-log-syntax'
 " PHP 
 
 " php-documentor
-" Plugin 'sumpygump/php-documentor-vim'
-Plugin 'Rican7/php-doc-modded'
-au FileType php nnoremap <leader><leader>p :call PhpDocSingle()<CR> 
-au FileType php vnoremap <leader><leader>p :call PhpDocRange()<CR>
-
-
-" Plugin 'git://drupalcode.org/project/vimrc.git', {'rtp': 'bundle/vim-plugin-for-drupal/'}
+Plugin 'liulipeng/PDV--phpDocumentor-for-Vim'
+au FileType php nnoremap <leader><leader>p :call PhpDoc()<CR> 
 
 " ANSIBLE
 " Plugin 'chase/vim-ansible-yaml'
