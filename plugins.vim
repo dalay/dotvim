@@ -258,12 +258,6 @@ let g:jedi#popup_select_first = 0
 Plugin 'othree/html5.vim'
 
 
-" AutoPep8
-" Plugin 'tell-k/vim-autopep8'
-" Disable show diff window
-" let g:autopep8_disable_show_diff=1
-
-
 " Autoformat 
 Plugin 'Chiel92/vim-autoformat'
 let g_autoformat_verbosemode=1
