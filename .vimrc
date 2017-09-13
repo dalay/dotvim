@@ -1,6 +1,3 @@
-" PLUGINS 
-source $HOME/.vim/plugins.vim
-
 " Включить подсветку синтаксиса и задаем цветовую схему по-умолчанию
 syntax on
 colorscheme jellybeans
@@ -228,4 +225,4 @@ nmap <C-x> :tabclose<CR>
 " map "+p :r!xclip -o -sel clip<CR>
 
 " PLUGINS 
-" source $HOME/.vim/plugins.vim
+source $HOME/.vim/plugins.vim

@@ -1,19 +1,19 @@
-filetype off                  " required
-
-" Istall Vundle
-" git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+" Autoistall Vim-Plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
 "=====================================================
-" Vundle settings
+" Vim-Plug settings
 "=====================================================
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
 
-Plugin 'gmarik/Vundle.vim'      " let Vundle manage Vundle, required
+call plug#begin('~/.vim/plugged')
+
 
 " NerdTreee 
-Plugin 'scrooloose/nerdtree'            " Project and file navigation
+Plug 'scrooloose/nerdtree'            " Project and file navigation
 " показать NERDTree на ...
 map <F3> :NERDTreeToggle<CR>
 " автоматически обновлять буфер после переименовывания файла
@@ -31,14 +31,14 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 nmap <C-\> :NERDTreeFind<CR>
 
 " TagBar
-Plugin 'majutsushi/tagbar'              " Class/module browser
+Plug 'majutsushi/tagbar'              " Class/module browser
 map <F4> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1 " автофокус на Tagbar при открытии
 
-Plugin 'terryma/vim-multiple-cursors'
+Plug 'terryma/vim-multiple-cursors'
 
 " QuickRun
-Plugin 'thinca/vim-quickrun'
+Plug 'thinca/vim-quickrun'
 let g:quickrun_config = {
 \   "*" : {
 \       "outputter/buffer/close_on_empty" : 1,
@@ -47,7 +47,7 @@ let g:quickrun_config = {
 \}
 
 " NeoMake
-Plugin 'neomake/neomake'                "Syntastic alternative
+Plug 'neomake/neomake'                "Syntastic alternative
 augroup neomake_lints
     autocmd!
     autocmd BufWritePost * Neomake
@@ -79,7 +79,7 @@ let g:neomake_php_phpcs_args = [
             \ ]
 
 " Srartify
-Plugin 'mhinz/vim-startify'             " Nice start screen
+Plug 'mhinz/vim-startify'             " Nice start screen
 map <silent> <leader>s  :Startify<CR>
 let g:startify_bookmarks = ['~/.bashrc', '~/.vimrc', '~/.vim/plugins.vim', '~/scripts/']
 let g:startify_change_to_vcs_root = 1
@@ -102,20 +102,20 @@ let g:startify_session_delete_buffers = 1
 let g:startify_session_dir = '~/.vim/session'
 
 " Vim-Commentary
-Plugin 'tpope/vim-commentary'
+Plug 'tpope/vim-commentary'
 autocmd FileType nginx setlocal commentstring=#\ %s
 autocmd FileType php setlocal commentstring=//\ %s
 
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-surround'
-Plugin 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'jiangmiao/auto-pairs'
 
 " SuperTab
-Plugin 'ervandew/supertab'
+Plug 'ervandew/supertab'
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 
 " EasyMotion
-Plugin 'easymotion/vim-easymotion'
+Plug 'easymotion/vim-easymotion'
 " отключаем зависимость от регистра
 let g:EasyMotion_smartcase = 1
 " отключаем тень (в момент выбора цели весь текст помечается как комментарий)
@@ -135,17 +135,17 @@ nmap <Leader><Leader>l <Plug>(easymotion-overwin-line)
 " nmap <Leader>w <Plug>(easymotion-overwin-w)
 
 "" ctrlp
-Plugin 'ctrlpvim/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_map = '<c-p>'          " открываем нажатием Ctrl+P
 let g:ctrlp_cmd = 'CtrlPBuffer'    " показывать список буферов по-умолчанию
 
 " Peekaboo extends " and @ in normal mode and <CTRL-R> in insert mode so you
 " can see the contents of the registers."
-Plugin 'junegunn/vim-peekaboo'
+Plug 'junegunn/vim-peekaboo'
 
 " AIRLINE
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 set laststatus=2
 set linespace=0
 set noshowmode
@@ -180,7 +180,7 @@ let g:airline#extensions#tabline#tab_nr_type = 1
 
 
 " lightline
-" Plugin 'itchyny/lightline.vim'
+" Plug 'itchyny/lightline.vim'
 " let g:lightline = {
 "     \ 'colorscheme': 'dalay',
 "     \ 'component': {
@@ -226,28 +226,28 @@ let g:airline#extensions#tabline#tab_nr_type = 1
 " endfunction
 
 
-" Plugin 'edkolev/tmuxline.vim'
+" Plug 'edkolev/tmuxline.vim'
 
 " SYNTAX HIGHLIGHTING
 
-Plugin 'evanmiller/nginx-vim-syntax'
-Plugin 'dzeban/vim-log-syntax'
+Plug 'evanmiller/nginx-vim-syntax'
+Plug 'dzeban/vim-log-syntax'
 
 " PHP 
 
 " php-documentor
-Plugin 'liulipeng/PDV--phpDocumentor-for-Vim'
+Plug 'liulipeng/PDV--phpDocumentor-for-Vim'
 au FileType php nnoremap <leader><leader>p :call PhpDoc()<CR> 
 
 " ANSIBLE
-" Plugin 'chase/vim-ansible-yaml'
-" Plugin 'pearofducks/ansible-vim'
+" Plug 'chase/vim-ansible-yaml'
+" Plug 'pearofducks/ansible-vim'
 " let g:ansible_options = {'ignore_blank_lines': 0}
 
 " PYTHON
 
 " Jedi-Vim
-Plugin 'davidhalter/jedi-vim' "  highlighting, run and ipdb and more)
+Plug 'davidhalter/jedi-vim' "  highlighting, run and ipdb and more)
 let g:jedi#rename_command = ''
 " Jedi automatically starts the completion, if you type a dot, e.g. str., if you don't want this:
 let g:jedi#popup_on_dot = 0
@@ -255,14 +255,12 @@ let g:jedi#popup_on_dot = 0
 let g:jedi#popup_select_first = 0
 
 
-Plugin 'othree/html5.vim'
+Plug 'othree/html5.vim'
 
 
 " Autoformat 
-Plugin 'Chiel92/vim-autoformat'
+Plug 'Chiel92/vim-autoformat'
 let g_autoformat_verbosemode=1
 nmap <F8> :Autoformat<CR>:w<CR>
 
-call vundle#end()                   " required
-
-filetype plugin indent on
+call plug#end()
