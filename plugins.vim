@@ -8,7 +8,8 @@
 "=====================================================
 " Vim-Plug settings
 "=====================================================
-
+" let g:plug_window='tabnew'
+let g:plug_window='e'
 call plug#begin('~/.vim/plugged')
 
 

@@ -103,8 +103,6 @@ set list listchars=tab:→\ ,trail:·
      autocmd FileType python,javascript,php match Excess /\%80v.*/
  augroup END
 
-
-
 " Spell-Checker
 set spelllang=ru
 nn <F7> :setlocal spell!<CR>
@@ -161,8 +159,6 @@ autocmd BufReadPost *
  \ if line("'\"") > 0 && line("'\"") <= line("$") |
   \   exe "normal! g`\"" |
   \ endif
-
-
 
 " обнуление задержки для клавиши Esc
 set ttimeout ttimeoutlen=0 notimeout
