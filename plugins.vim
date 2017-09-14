@@ -9,12 +9,45 @@
 " Vim-Plug settings
 "=====================================================
 " let g:plug_window='tabnew'
-let g:plug_window='e'
+let g:plug_window='tabnew'
 call plug#begin('~/.vim/plugged')
 
+" COMMON
+Plug 'scrooloose/nerdtree', {'on': ['NERDTreeToggle', 'NERDTreeFind']}
+Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'}
+Plug 'terryma/vim-multiple-cursors'
+Plug 'thinca/vim-quickrun'
+Plug 'neomake/neomake'                "Syntastic alternative
+Plug 'mhinz/vim-startify'             " Nice start screen
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'jiangmiao/auto-pairs'
+Plug 'ervandew/supertab'
+Plug 'easymotion/vim-easymotion'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/vim-peekaboo'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+" Plug 'itchyny/lightline.vim'
+" Plug 'edkolev/tmuxline.vim'
+" PYTHON
+Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+" PHP
+Plug 'liulipeng/PDV--phpDocumentor-for-Vim', { 'for': 'php' }
+" HTML
+Plug 'othree/html5.vim', { 'for': ['html', 'htmldjango'] }
+" SYNTAX
+Plug 'evanmiller/nginx-vim-syntax', {'for': 'nginx'}
+Plug 'dzeban/vim-log-syntax'
+Plug 'Chiel92/vim-autoformat'
+" Plug 'chase/vim-ansible-yaml'
+" Plug 'pearofducks/ansible-vim'
+
+
+call plug#end()
 
 " NerdTreee 
-Plug 'scrooloose/nerdtree'            " Project and file navigation
 " показать NERDTree на ...
 map <F3> :NERDTreeToggle<CR>
 " автоматически обновлять буфер после переименовывания файла
@@ -32,14 +65,11 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 nmap <C-\> :NERDTreeFind<CR>
 
 " TagBar
-Plug 'majutsushi/tagbar'              " Class/module browser
 map <F4> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1 " автофокус на Tagbar при открытии
 
-Plug 'terryma/vim-multiple-cursors'
 
 " QuickRun
-Plug 'thinca/vim-quickrun'
 let g:quickrun_config = {
 \   "*" : {
 \       "outputter/buffer/close_on_empty" : 1,
@@ -48,7 +78,6 @@ let g:quickrun_config = {
 \}
 
 " NeoMake
-Plug 'neomake/neomake'                "Syntastic alternative
 augroup neomake_lints
     autocmd!
     autocmd BufWritePost * Neomake
@@ -80,7 +109,6 @@ let g:neomake_php_phpcs_args = [
             \ ]
 
 " Srartify
-Plug 'mhinz/vim-startify'             " Nice start screen
 map <silent> <leader>s  :Startify<CR>
 let g:startify_bookmarks = ['~/.bashrc', '~/.vimrc', '~/.vim/plugins.vim', '~/scripts/']
 let g:startify_change_to_vcs_root = 1
@@ -103,20 +131,14 @@ let g:startify_session_delete_buffers = 1
 let g:startify_session_dir = '~/.vim/session'
 
 " Vim-Commentary
-Plug 'tpope/vim-commentary'
 autocmd FileType nginx setlocal commentstring=#\ %s
 autocmd FileType php setlocal commentstring=//\ %s
 
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-Plug 'jiangmiao/auto-pairs'
 
 " SuperTab
-Plug 'ervandew/supertab'
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 
 " EasyMotion
-Plug 'easymotion/vim-easymotion'
 " отключаем зависимость от регистра
 let g:EasyMotion_smartcase = 1
 " отключаем тень (в момент выбора цели весь текст помечается как комментарий)
@@ -136,17 +158,13 @@ nmap <Leader><Leader>l <Plug>(easymotion-overwin-line)
 " nmap <Leader>w <Plug>(easymotion-overwin-w)
 
 "" ctrlp
-Plug 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_map = '<c-p>'          " открываем нажатием Ctrl+P
 let g:ctrlp_cmd = 'CtrlPBuffer'    " показывать список буферов по-умолчанию
 
 " Peekaboo extends " and @ in normal mode and <CTRL-R> in insert mode so you
 " can see the contents of the registers."
-Plug 'junegunn/vim-peekaboo'
 
 " AIRLINE
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 set laststatus=2
 set linespace=0
 set noshowmode
@@ -181,7 +199,6 @@ let g:airline#extensions#tabline#tab_nr_type = 1
 
 
 " lightline
-" Plug 'itchyny/lightline.vim'
 " let g:lightline = {
 "     \ 'colorscheme': 'dalay',
 "     \ 'component': {
@@ -227,28 +244,19 @@ let g:airline#extensions#tabline#tab_nr_type = 1
 " endfunction
 
 
-" Plug 'edkolev/tmuxline.vim'
 
-" SYNTAX HIGHLIGHTING
-
-Plug 'evanmiller/nginx-vim-syntax'
-Plug 'dzeban/vim-log-syntax'
 
 " PHP 
 
 " php-documentor
-Plug 'liulipeng/PDV--phpDocumentor-for-Vim'
 au FileType php nnoremap <leader><leader>p :call PhpDoc()<CR> 
 
 " ANSIBLE
-" Plug 'chase/vim-ansible-yaml'
-" Plug 'pearofducks/ansible-vim'
 " let g:ansible_options = {'ignore_blank_lines': 0}
 
 " PYTHON
 
 " Jedi-Vim
-Plug 'davidhalter/jedi-vim' "  highlighting, run and ipdb and more)
 let g:jedi#rename_command = ''
 " Jedi automatically starts the completion, if you type a dot, e.g. str., if you don't want this:
 let g:jedi#popup_on_dot = 0
@@ -256,12 +264,9 @@ let g:jedi#popup_on_dot = 0
 let g:jedi#popup_select_first = 0
 
 
-Plug 'othree/html5.vim'
 
 
 " Autoformat 
-Plug 'Chiel92/vim-autoformat'
 let g_autoformat_verbosemode=1
 nmap <F8> :Autoformat<CR>:w<CR>
 
-call plug#end()

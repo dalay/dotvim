@@ -125,7 +125,7 @@ set imsearch=0
 " highlight lCursor guifg=NONE guibg=Cyan
 
 " само пересчитывает vimrc при сохранении оного
-" autocmd! bufwritepost ~/.vimrc execute "normal! :source ~/.vimrc"
+autocmd! bufwritepost ~/.vimrc, ~/.vim/plugin.vim execute "normal! :source ~/.vimrc"
 
 set scrolloff=3     " keep 3 lines when scrolling
 
