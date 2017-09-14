@@ -34,7 +34,7 @@ Plug 'vim-airline/vim-airline-themes'
 " PYTHON
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 " PHP
-Plug 'liulipeng/PDV--phpDocumentor-for-Vim', { 'for': 'php' }
+Plug 'sumpygump/php-documentor-vim', { 'for': 'php' }
 " HTML
 Plug 'othree/html5.vim', { 'for': ['html', 'htmldjango'] }
 " SYNTAX
@@ -136,7 +136,6 @@ let g:startify_session_dir = '~/.vim/session'
 autocmd FileType nginx setlocal commentstring=#\ %s
 autocmd FileType php setlocal commentstring=//\ %s
 
-
 " SuperTab
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 
@@ -206,71 +205,23 @@ let g:airline#extensions#tabline#show_tab_nr = 1
 " показывать только номер вкладки
 let g:airline#extensions#tabline#tab_nr_type = 1
 
-
-" lightline
-" let g:lightline = {
-"     \ 'colorscheme': 'dalay',
-"     \ 'component': {
-"     \   'readonly': '%{&readonly?"RO":"W"}',
-"     \   'modified': '%{&modified?"+":""}',
-"     \ },
-"     \ 'component_function': {
-"     \   'cwd': 'CwdFunc',
-"     \   'fsz': 'FileSize',
-"     \ },
-"     \ 'active': {
-"     \   'left':  [ ['mode', 'paste'], ['readonly'], ['cwd'] ],
-"     \   'right': [ ['percent'], ['fileformat'], ['fileencoding'], ['fsz'], ['filetype'], ['filename'], ['modified'] ]
-"     \ },
-"     \ 'inactive': {
-"     \   'left':  [ ['mode', 'paste'], ['readonly'], ['cwd'] ],
-"     \   'right': [ ['percent'], ['fileformat'], ['fileencoding'], ['fsz'], ['filetype'], ['filename'], ['modified'] ]
-"     \ },
-"     \ 'separator':    { 'left': '',  'right': ''  },
-"     \ 'subseparator': { 'left': '|', 'right': '|' },
-"     \ 'tabline': {
-"             \ 'left': [ [ 'tabs' ] ],
-"             \ 'middle': [ [ '' ] ] ,
-"             \ 'right': [ [ '' ] ] },
-"     \ }
-
-" function! CwdFunc()
-"     let cwd = substitute(getcwd(), expand($HOME), '~', '')
-"     return cwd
-" endfunction
-" function! FileSize()
-"     let bytes = getfsize(expand("%:p"))
-"     if bytes <= 0
-"         return ""
-"     endif
-"     if bytes < 1024
-"         return bytes
-"     elseif bytes > (1024*1024)
-"         return (bytes / (1024*1024)) . "Mb"
-"     else
-"         return (bytes / 1024) . "K"
-"     endif
-" endfunction
-
-
 " PHP 
-" php-documentor
+" PHP-DOCUMENTOR
 au FileType php nnoremap <leader><leader>p :call PhpDoc()<CR> 
+let g:pdv_cfg_Author = 'Dalay <dalay@drupalka.ru>'
+let g:pdv_cfg_ClassTags = ["author"]
 
 " ANSIBLE
 " let g:ansible_options = {'ignore_blank_lines': 0}
 
 " PYTHON
-" Jedi-Vim
+" JEDI-VIM
 let g:jedi#rename_command = ''
 " Jedi automatically starts the completion, if you type a dot, e.g. str., if you don't want this:
 let g:jedi#popup_on_dot = 0
 " Jedi selects the first line of the completion menu: for a better typing-flow and usually saves one keypress.
 let g:jedi#popup_select_first = 0
 
-
-
-
-" Autoformat 
+" AUTOFORMAT
 let g_autoformat_verbosemode=1
 nmap <F8> :Autoformat<CR>:w<CR>
