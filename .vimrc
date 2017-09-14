@@ -1,12 +1,13 @@
 " Включить подсветку синтаксиса и задаем цветовую схему по-умолчанию
 syntax on
 colorscheme jellybeans
+set background=dark
 " Включаем несовместимость настроек с Vi
 set nocompatible
+
 " Use 256 colors in vim 
 " some plugins not work without it 
 set t_Co=256
-set background=dark
 " Кодировка текста по умолчанию utf8
 set termencoding=utf8
 set fileencodings=utf-8,cp1251,koi8-r,cp866
@@ -24,16 +25,14 @@ set hlsearch
 set ignorecase
 set smartcase
 
+" автоматически обновлять файл при его изменении
+set autoread
+
 " Показывать положение курсора всё время.
 set ruler
 
 " Показывать незавершённые команды в статусбаре
 set showcmd
-
-" Old: Фолдинг по отсупам
-" set foldenable
-" set foldlevel=1
-" set foldmethod=indent
 
 "=============НАСТРОЙКИ СВОРАЧИВАНИЯ БЛОКОВ КОДА (фолдинг)=============
 " set foldenable " отклключить фолдинг по умолчанию
@@ -46,13 +45,9 @@ set showcmd
 
 " Выключаем звуковое оповещение о достижении конца буффера, невозможности действия и т.д.
 set noerrorbells visualbell t_vb=
-autocmd GUIEnter * set visualbell t_vb=
 
 " Сделать строку команд высотой в одну строку
 set ch=1
-
-" Скрывать указатель мыши, когда печатаем
-set mousehide
 
 " Включить автоотступы
 set autoindent
@@ -124,8 +119,8 @@ set iminsert=0
 set imsearch=0
 " highlight lCursor guifg=NONE guibg=Cyan
 
-" само пересчитывает vimrc при сохранении оного
-autocmd! bufwritepost ~/.vimrc, ~/.vim/plugin.vim execute "normal! :source ~/.vimrc"
+" Автоматически перечитывать конфигурацию VIM после сохранения
+autocmd! bufwritepost .vimrc source %
 
 set scrolloff=3     " keep 3 lines when scrolling
 
@@ -139,9 +134,6 @@ autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 set wrap
 " Перенос строк по словам, а не по буквам
 set linebreak
-
-" Paste mode toggle
-set pastetoggle=<F2>
 
 " Шаблоны для разных типов файлов
 autocmd BufNewFile  *.py   0r ~/.vim/templates/python3 | 4
@@ -162,6 +154,9 @@ autocmd BufReadPost *
 
 " обнуление задержки для клавиши Esc
 set ttimeout ttimeoutlen=0 notimeout
+
+" например, при переходе к тегу, vim может ругаться, что текущий буфер не сохранен, hidden решает эту проблему
+set hidden
 
 " nice wrapping for long lines with respect of
 " starging indent
@@ -219,6 +214,10 @@ nmap <C-x> :tabclose<CR>
 " This will remap the "+y (copy) and "+p (paste) commands to use xclip.
 " vmap "+y :!xclip -f -sel clip<CR>
 " map "+p :r!xclip -o -sel clip<CR>
+
+" Paste mode toggle
+set pastetoggle=<F2>
+
 
 " PLUGINS 
 source $HOME/.vim/plugins.vim

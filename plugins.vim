@@ -67,6 +67,8 @@ nmap <C-\> :NERDTreeFind<CR>
 " TagBar
 map <F4> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1 " автофокус на Tagbar при открытии
+" сортировать в том порядке, в котором тег появляется в коде, а не по имени
+let g:tagbar_sort = 0
 
 
 " QuickRun
@@ -157,7 +159,14 @@ nmap <Leader><Leader>l <Plug>(easymotion-overwin-line)
 " map  <Leader>w <Plug>(easymotion-bd-w)
 " nmap <Leader>w <Plug>(easymotion-overwin-w)
 
-"" ctrlp
+"" CTRLP
+" По умолчанию, CtrlP ищет файлы по их полному пути, что мне показалось странным, поскольку на запрос "repo", имея следующую структуру файлов:
+" project/src/Repository/Repository.php
+" project/src/Repository/Foo.php
+" CtrlP может придать больший вес файлу Foo.php. К счастью, CtrlP, как и многие другие плагины для vim'a, имеет гибкую настройку. Для решения проблемы нужно прописать
+let g:ctrlp_by_filename = 1
+" откуда начинать поиск. w - ближайшая директория, которая содержит признаки наличия CVS (.git, .svn). r - текущая директория (pwd).
+let g:ctrlp_working_path_mode = 'wr'
 let g:ctrlp_map = '<c-p>'          " открываем нажатием Ctrl+P
 let g:ctrlp_cmd = 'CtrlPBuffer'    " показывать список буферов по-умолчанию
 
@@ -244,10 +253,7 @@ let g:airline#extensions#tabline#tab_nr_type = 1
 " endfunction
 
 
-
-
 " PHP 
-
 " php-documentor
 au FileType php nnoremap <leader><leader>p :call PhpDoc()<CR> 
 
@@ -255,7 +261,6 @@ au FileType php nnoremap <leader><leader>p :call PhpDoc()<CR>
 " let g:ansible_options = {'ignore_blank_lines': 0}
 
 " PYTHON
-
 " Jedi-Vim
 let g:jedi#rename_command = ''
 " Jedi automatically starts the completion, if you type a dot, e.g. str., if you don't want this:
@@ -269,4 +274,3 @@ let g:jedi#popup_select_first = 0
 " Autoformat 
 let g_autoformat_verbosemode=1
 nmap <F8> :Autoformat<CR>:w<CR>
-
