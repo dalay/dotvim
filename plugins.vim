@@ -84,13 +84,15 @@ augroup neomake_lints
     autocmd!
     autocmd BufWritePost * Neomake
 augroup END
-" let g:neomake_logfile = '/tmp/neomake.log'
+let g:neomake_logfile = '/tmp/neomake.log'
+let self_dir = expand("<sfile>:p:h")
+" python
 let g:neomake_python_enabled_makers = ['pyflakes', 'pylint']
 let g:neomake_open_list = 2
 let g:neomake_list_height = 5
 let g:neomake_echo_current_error=1
 let g:neomake_python_pylint_args = [
-        \ '--rcfile=' . expand("<sfile>:p:h") . '/misc/pylintrc',
+        \ '--rcfile=' . self_dir . '/misc/.pylintrc',
         \ '--load-plugins=pylint_django',
         \ '--disable=django-not-available', 
         \ '--ignored-classes=Manager,File,TreeForeignKey',
@@ -99,6 +101,18 @@ let g:neomake_python_pylint_args = [
         \ '--reports=no',
         \ '--disable=C,W,R0901,R0201',
         \ ]
+" javascript
+let g:neomake_javascript_jshint_args = [
+        \ '--config=' . self_dir . '/misc/.jshintrc',
+        \ ]
+" css
+let g:neomake_css_enabled_markers = ['csslint']
+let g:neomake_css_csslint_args = [
+                    \ '--format=compact',
+                    \ '--config=' . self_dir . '/misc/.csslintrc',
+        \ ]
+        " \ '--config=' . self_dir . '/misc/.csslintrc',
+                    " \ '--ignore=box-model,ids',
 " " Друпал - строгие правила.
 " let g:neomake_php_phpcs_args = [
 "             \ '--standard=Drupal',
@@ -109,6 +123,7 @@ let g:neomake_php_phpcs_args = [
             \ '--report=csv',
             \ '--standard='.expand("<sfile>:p:h").'/.vim/misc/phpcs-drupal-ruleset.xml',
             \ ]
+
 
 " Srartify
 map <silent> <leader>s  :Startify<CR>
@@ -169,9 +184,6 @@ let g:ctrlp_working_path_mode = 'wr'
 let g:ctrlp_map = '<c-p>'          " открываем нажатием Ctrl+P
 let g:ctrlp_cmd = 'CtrlPBuffer'    " показывать список буферов по-умолчанию
 
-" Peekaboo extends " and @ in normal mode and <CTRL-R> in insert mode so you
-" can see the contents of the registers."
-
 " AIRLINE
 set laststatus=2
 set linespace=0
@@ -225,3 +237,5 @@ let g:jedi#popup_select_first = 0
 " AUTOFORMAT
 let g_autoformat_verbosemode=1
 nmap <F8> :Autoformat<CR>:w<CR>
+" VIM-PEEKABOO
+let g:peekaboo_compact = 1
