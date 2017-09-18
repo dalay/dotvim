@@ -86,7 +86,7 @@ augroup neomake_lints
 augroup END
 let g:neomake_logfile = '/tmp/neomake.log'
 let self_dir = expand("<sfile>:p:h")
-" python
+" neomake: python
 let g:neomake_python_enabled_makers = ['pyflakes', 'pylint']
 let g:neomake_open_list = 2
 let g:neomake_list_height = 5
@@ -101,18 +101,16 @@ let g:neomake_python_pylint_args = [
         \ '--reports=no',
         \ '--disable=C,W,R0901,R0201',
         \ ]
-" javascript
+" neomake: javascript
 let g:neomake_javascript_jshint_args = [
         \ '--config=' . self_dir . '/misc/.jshintrc',
         \ ]
-" css
+" neomake: css
 let g:neomake_css_enabled_markers = ['csslint']
 let g:neomake_css_csslint_args = [
                     \ '--format=compact',
                     \ '--config=' . self_dir . '/misc/.csslintrc',
         \ ]
-        " \ '--config=' . self_dir . '/misc/.csslintrc',
-                    " \ '--ignore=box-model,ids',
 " " Друпал - строгие правила.
 " let g:neomake_php_phpcs_args = [
 "             \ '--standard=Drupal',
