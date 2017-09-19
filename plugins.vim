@@ -188,9 +188,11 @@ set linespace=0
 set noshowmode
 let g:airline_theme = 'jellybeans'
 " Set custom left separator 
-let g:airline_left_sep = '▶'
+" let g:airline_left_sep = '▶'
+let g:airline_left_sep = '≡'
 " Set custom right separator 
-let g:airline_right_sep = '◀'
+" let g:airline_right_sep = '◀'
+let g:airline_right_sep = '≡'
 " Enable airline for tab-bar 
 let g:airline#extensions#tabline#enabled = 1
 " Don't display buffers in tab-bar with single tab 
