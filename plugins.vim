@@ -9,7 +9,8 @@
 " Vim-Plug settings
 "=====================================================
 " let g:plug_window='tabnew'
-let g:plug_window='tabnew'
+" let g:plug_window='tabnew'
+let g:plug_window='enew'
 call plug#begin('~/.vim/plugged')
 
 " COMMON
@@ -18,6 +19,7 @@ Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'}
 Plug 'terryma/vim-multiple-cursors'
 Plug 'thinca/vim-quickrun'
 Plug 'neomake/neomake'                "Syntastic alternative
+Plug 'Chiel92/vim-autoformat', {'on': 'Autoformat'}
 Plug 'mhinz/vim-startify'             " Nice start screen
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
@@ -29,7 +31,6 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" Plug 'itchyny/lightline.vim'
 " Plug 'edkolev/tmuxline.vim'
 " PYTHON
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
@@ -38,11 +39,8 @@ Plug 'sumpygump/php-documentor-vim', { 'for': 'php' }
 " HTML
 Plug 'othree/html5.vim', { 'for': ['html', 'htmldjango'] }
 " SYNTAX
-Plug 'evanmiller/nginx-vim-syntax', {'for': 'nginx'}
-Plug 'dzeban/vim-log-syntax'
-Plug 'Chiel92/vim-autoformat'
-" Plug 'chase/vim-ansible-yaml'
-" Plug 'pearofducks/ansible-vim'
+Plug 'chr4/nginx.vim', {'for': 'nginx'}
+Plug 'dzeban/vim-log-syntax', { 'for': 'log' }
 
 
 call plug#end()
@@ -82,7 +80,7 @@ let g:quickrun_config = {
 " NeoMake
 augroup neomake_lints
     autocmd!
-    autocmd BufWritePost * Neomake
+    autocmd BufWritePost python,php,js Neomake
 augroup END
 let g:neomake_logfile = '/tmp/neomake.log'
 let self_dir = expand("<sfile>:p:h")
