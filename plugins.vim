@@ -80,9 +80,9 @@ let g:quickrun_config = {
 " NeoMake
 augroup neomake_lints
     autocmd!
-    autocmd BufWritePost python,php,js Neomake
+    autocmd BufWritePost *.py,*.php,*.js Neomake
 augroup END
-let g:neomake_logfile = '/tmp/neomake.log'
+" let g:neomake_logfile = '/tmp/neomake.log'
 let self_dir = expand("<sfile>:p:h")
 " neomake: python
 let g:neomake_python_enabled_makers = ['pyflakes', 'pylint']
