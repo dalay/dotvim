@@ -167,30 +167,19 @@ set lazyredraw
 
 " YAML filetype
 au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-
-" au BufNewFile,BufRead *.html,*.j2 set filetype=htmldjango
-" a better htmldjango detection
-augroup filetypedetect
-  " removes current htmldjango detection located at $VIMRUNTIME/filetype.vim
-  au! BufNewFile,BufRead *.html
-  au  BufNewFile,BufRead *.html   call FThtml()
-
-  func! FThtml()
-    let n = 1
-    while n < 10 && n < line("$")
-      if getline(n) =~ '\<DTD\s\+XHTML\s'
-        setf xhtml
-        return
-      endif
-      if getline(n) =~ '{%\|{{\|{#'
-        setf htmldjango
-        return
-      endif
-      let n = n + 1
-    endwhile
-    setf html
-  endfunc
-augroup END
+" HTMLDJANGO filetype
+autocmd BufNewFile,BufRead *.html call DetectTemplate()
+fun! DetectTemplate()
+  let n = 1
+  while n < line("$")
+    if getline(n) =~ '{%' || getline(n) =~ '{{'
+      set ft=htmldjango
+      return
+    endif
+    let n = n + 1
+  endwhile
+  set ft=html "default html
+endfun
 
 " Включаем проверку правописания при сохранении текстового файла.
 " au BufWrite *.txt set spell spelllang=ru
