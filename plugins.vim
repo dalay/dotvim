@@ -26,7 +26,8 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
 Plug 'ervandew/supertab'
-Plug 'easymotion/vim-easymotion'
+Plug 'justinmk/vim-sneak'
+Plug 'junegunn/vim-easy-align'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'vim-airline/vim-airline'
@@ -150,25 +151,6 @@ autocmd FileType php setlocal commentstring=//\ %s
 " SuperTab
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 
-" EasyMotion
-" отключаем зависимость от регистра
-let g:EasyMotion_smartcase = 1
-" отключаем тень (в момент выбора цели весь текст помечается как комментарий)
-let g:EasyMotion_do_shade = 0
-" какой группой подсвечивать цели
-" hi link EasyMotionTarget Search
-" " <Leader>f{char} to move to {char}
-" map  <Leader>f <Plug>(easymotion-bd-f)
-" nmap <Leader>f <Plug>(easymotion-overwin-f)
-" " s{char}{char} to move to {char}{char}
-" " nmap s <Plug>(easymotion-overwin-f2)
-" " Move to line
-map <Leader><Leader>l <Plug>(easymotion-bd-jk)
-nmap <Leader><Leader>l <Plug>(easymotion-overwin-line)
-" " Move to word
-" map  <Leader>w <Plug>(easymotion-bd-w)
-" nmap <Leader>w <Plug>(easymotion-overwin-w)
-
 "" CTRLP
 " По умолчанию, CtrlP ищет файлы по их полному пути, что мне показалось странным, поскольку на запрос "repo", имея следующую структуру файлов:
 " project/src/Repository/Repository.php
@@ -237,3 +219,14 @@ let g_autoformat_verbosemode=1
 nmap <F8> :Autoformat<CR>:w<CR>
 " VIM-PEEKABOO
 let g:peekaboo_compact = 1
+
+"  VIM-EASY-ALIGN
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+" VIM-SNEAK
+let g:sneak#label = 1
+map <leader>f <Plug>Sneak_s
+map <leader>F <Plug>Sneak_S
