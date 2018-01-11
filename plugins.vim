@@ -180,6 +180,9 @@ let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#keymap#enabled = 0
 " Display only filename in tab 
 let g:airline#extensions#tabline#fnamemod = ':t'
+" Hide labels for tabs/buffers
+let airline#extensions#tabline#tabs_label = ''
+let airline#extensions#tabline#show_splits = 0
 " Don't display encoding 
 let g:airline_section_y = ''
 " Don't display filetype 
