@@ -13,7 +13,7 @@ vim +PluginInstall
 cd ~
 git clone https://github.com/dalay/dotvim.git .vim
 cd .vim
-~/.vim/install_config.sh
+. ~/.vim/install_config.sh
 ```
 ### or
 ```shell
