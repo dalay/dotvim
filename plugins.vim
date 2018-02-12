@@ -42,7 +42,6 @@ Plug 'othree/html5.vim', { 'for': ['html', 'htmldjango'] }
 " SYNTAX
 Plug 'chr4/nginx.vim', {'for': 'nginx'}
 Plug 'dzeban/vim-log-syntax', { 'for': 'log' }
-Plug 'ekalinin/dockerfile.vim', { 'for': 'Dockerfile' }
 
 
 
