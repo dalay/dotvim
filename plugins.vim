@@ -45,6 +45,7 @@ Plug 'chr4/nginx.vim', {'for': 'nginx'}
 Plug 'dzeban/vim-log-syntax', { 'for': 'log' }
 
 Plug 'junegunn/goyo.vim' " Distraction-free writing in Vim
+Plug 'tpope/vim-unimpaired' 
 
 
 
@@ -83,11 +84,12 @@ let g:quickrun_config = {
 \}
 
 " NEOMAKE
+" let g:neomake_verbose = 0
+" let g:neomake_logfile = '/tmp/neomake.log'
 augroup neomake_lints
     autocmd!
     autocmd BufWritePost *.py,*.php,*.js,*.css Neomake
 augroup END
-" let g:neomake_logfile = '/tmp/neomake.log'
 let self_dir = expand("<sfile>:p:h")
 " neomake: python
 let g:neomake_python_enabled_makers = ['pyflakes', 'pylint']
@@ -106,6 +108,7 @@ let g:neomake_python_pylint_args = [
         \ ]
 " neomake: javascript
 let g:neomake_javascript_jshint_args = [
+        \ '--verbose',
         \ '--config=' . self_dir . '/misc/.jshintrc.json',
         \ ]
 " neomake: css
