@@ -19,14 +19,15 @@ Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'}
 Plug 'terryma/vim-multiple-cursors'
 Plug 'thinca/vim-quickrun'
 Plug 'neomake/neomake'                "Syntastic alternative
+" Plug 'w0rp/ale'                "Syntastic alternative
 Plug 'Chiel92/vim-autoformat', {'on': 'Autoformat'}
 Plug 'mhinz/vim-startify'             " Nice start screen
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-repeat' 
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
 Plug 'ervandew/supertab'
-Plug 'justinmk/vim-sneak'
+Plug 'justinmk/vim-sneak' " motions
 Plug 'junegunn/vim-easy-align'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'junegunn/vim-peekaboo'
@@ -42,6 +43,8 @@ Plug 'othree/html5.vim', { 'for': ['html', 'htmldjango'] }
 " SYNTAX
 Plug 'chr4/nginx.vim', {'for': 'nginx'}
 Plug 'dzeban/vim-log-syntax', { 'for': 'log' }
+
+Plug 'junegunn/goyo.vim' " Distraction-free writing in Vim
 
 
 
@@ -79,10 +82,10 @@ let g:quickrun_config = {
 \   },
 \}
 
-" NeoMake
+" NEOMAKE
 augroup neomake_lints
     autocmd!
-    autocmd BufWritePost *.py,*.php,*.js Neomake
+    autocmd BufWritePost *.py,*.php,*.js,*.css Neomake
 augroup END
 " let g:neomake_logfile = '/tmp/neomake.log'
 let self_dir = expand("<sfile>:p:h")
@@ -103,13 +106,13 @@ let g:neomake_python_pylint_args = [
         \ ]
 " neomake: javascript
 let g:neomake_javascript_jshint_args = [
-        \ '--config=' . self_dir . '/misc/.jshintrc',
+        \ '--config=' . self_dir . '/misc/.jshintrc.json',
         \ ]
 " neomake: css
 let g:neomake_css_enabled_markers = ['csslint']
 let g:neomake_css_csslint_args = [
                     \ '--format=compact',
-                    \ '--config=' . self_dir . '/misc/.csslintrc',
+                    \ '--config=' . self_dir . '/misc/.csslintrc.json',
         \ ]
 " " Друпал - строгие правила.
 " let g:neomake_php_phpcs_args = [
@@ -234,3 +237,19 @@ nmap ga <Plug>(EasyAlign)
 let g:sneak#label = 1
 map <leader>f <Plug>Sneak_s
 map <leader>F <Plug>Sneak_S
+" map f <Plug>Sneak_f
+" map F <Plug>Sneak_F
+" map t <Plug>Sneak_t
+" map T <Plug>Sneak_T
+
+" " ALE
+" let g:airline#extensions#ale#enabled = 1
+" nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+" nmap <silent> <C-j> <Plug>(ale_next_wrap)
+" let g:ale_set_loclist = 0
+" let g:ale_set_quickfix = 1
+
+"GOYO
+let g:goyo_width = 100
+" let g:goyo_height = 90 
+" let g:goyo_linenr  "(default: 0)

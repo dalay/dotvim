@@ -1,0 +1,12 @@
+{
+    "ignore": [
+        "ids",
+        "order-alphabetical",
+        "universal-selector",
+        "outline-none",
+        "unique-headings",
+        "qualified-headings",
+        "box-model",
+        "adjoining-classes"
+    ]
+}
