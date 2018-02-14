@@ -47,6 +47,8 @@ Plug 'dzeban/vim-log-syntax', { 'for': 'log' }
 Plug 'junegunn/goyo.vim' " Distraction-free writing in Vim
 Plug 'tpope/vim-unimpaired' 
 
+Plug 'mattn/emmet-vim'
+
 
 
 call plug#end()
