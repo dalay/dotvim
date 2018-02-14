@@ -28,7 +28,7 @@ Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
 Plug 'ervandew/supertab'
 Plug 'justinmk/vim-sneak' " motions
-Plug 'junegunn/vim-easy-align'
+" Plug 'junegunn/vim-easy-align'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'vim-airline/vim-airline'
@@ -40,22 +40,17 @@ Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'sumpygump/php-documentor-vim', { 'for': 'php' }
 " HTML
 Plug 'othree/html5.vim', { 'for': ['html', 'htmldjango'] }
+Plug 'mattn/emmet-vim', { 'for': ['html', 'djangohtml'] }
 " SYNTAX
 Plug 'chr4/nginx.vim', {'for': 'nginx'}
 Plug 'dzeban/vim-log-syntax', { 'for': 'log' }
-
-Plug 'junegunn/goyo.vim' " Distraction-free writing in Vim
+" MISC
+Plug 'junegunn/goyo.vim', { 'on': 'Goyo' } " Distraction-free writing in Vim
 Plug 'tpope/vim-unimpaired' 
-
-Plug 'mattn/emmet-vim'
-
-
 
 call plug#end()
 
 " NerdTreee 
-" показать NERDTree на ...
-map <F3> :NERDTreeToggle<CR>
 " автоматически обновлять буфер после переименовывания файла
 let NERDTreeAutoDeleteBuffer = 1
 " Disable bookmarks label, and hint about '?' 
@@ -71,7 +66,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 nmap <C-\> :NERDTreeFind<CR>
 
 " TagBar
-map <F4> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1 " автофокус на Tagbar при открытии
 " сортировать в том порядке, в котором тег появляется в коде, а не по имени
 let g:tagbar_sort = 0
@@ -228,7 +222,6 @@ let g:jedi#popup_select_first = 0
 
 " AUTOFORMAT
 let g_autoformat_verbosemode=1
-nmap <F8> :Autoformat<CR>:w<CR>
 " VIM-PEEKABOO
 let g:peekaboo_compact = 1
 

@@ -100,7 +100,6 @@ set list listchars=tab:→\ ,trail:·
 
 " Spell-Checker
 set spelllang=ru
-nn <F7> :setlocal spell!<CR>
 highlight clear SpellBad
 highlight SpellBad ctermfg=Red
 highlight clear SpellCap
@@ -226,9 +225,7 @@ nmap <C-x> :tabclose<CR>
 " vmap "+y :!xclip -f -sel clip<CR>
 " map "+p :r!xclip -o -sel clip<CR>
 
-" Paste mode toggle
-set pastetoggle=<F2>
-
-
 " PLUGINS 
 source $HOME/.vim/plugins.vim
+" F KEYS
+source $HOME/.vim/f-keys.vim
