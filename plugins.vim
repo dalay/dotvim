@@ -40,7 +40,7 @@ Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'sumpygump/php-documentor-vim', { 'for': 'php' }
 " HTML
 Plug 'othree/html5.vim', { 'for': ['html', 'htmldjango'] }
-Plug 'mattn/emmet-vim', { 'for': ['html', 'djangohtml'] }
+Plug 'mattn/emmet-vim', { 'for': ['html', 'htmldjango'] }
 " SYNTAX
 Plug 'chr4/nginx.vim', {'for': 'nginx'}
 Plug 'dzeban/vim-log-syntax', { 'for': 'log' }
