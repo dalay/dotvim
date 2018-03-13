@@ -88,7 +88,8 @@ augroup neomake_lints
 augroup END
 let self_dir = expand("<sfile>:p:h")
 " neomake: python
-let g:neomake_python_enabled_makers = ['pyflakes', 'pylint']
+" let g:neomake_python_enabled_makers = ['pyflakes', 'pylint']
+let g:neomake_python_enabled_makers = ['python', 'pyflakes']
 let g:neomake_open_list = 2
 let g:neomake_list_height = 5
 let g:neomake_echo_current_error=1
