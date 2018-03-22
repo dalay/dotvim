@@ -4,16 +4,18 @@ install:
 	@ln -s $(VIMRC) $(HOME)/.vimrc
 	@vim -c ':PlugInstall --sync | :qa!'
 
-update: upgrade
+update: plug-upgrade
 	@vim -c ':PlugUpdate | :qa!'
 
-update-clean: update clean
-	@vim -c ':PlugUpdate | :qa!'
+upgrade: plug-clean plug-install update
 
-upgrade:
+plug-upgrade:
 	@vim -c ':PlugUpgrade | :qa!'
 
-clean:
+plug-clean:
 	@vim -c ':PlugClean | :qa!'
 
-.PHONY: install update upgrade clean
+plug-install:
+	@vim -c ':PlugInstall | :qa!'
+
+.PHONY: install update upgrade plug-upgrade plug-clean plug-install
