@@ -225,6 +225,11 @@ nmap <C-x> :tabclose<CR>
 " vmap "+y :!xclip -f -sel clip<CR>
 " map "+p :r!xclip -o -sel clip<CR>
 
+" Поиск выделенного текста.
+vnoremap // y/<C-R>"<CR>
+" С регуляркой.
+" vnoremap <expr> // 'y/\V'.escape(@",'\').'<CR>'
+
 " PLUGINS 
 source $HOME/.vim/plugins.vim
 " F KEYS
