@@ -93,7 +93,7 @@ let g:neomake_python_enabled_makers = ['python', 'pyflakes', 'pycodestyle']
 let g:neomake_open_list = 2
 let g:neomake_list_height = 5
 let g:neomake_echo_current_error=1
-let g:neomake_python_pycodestyle_args = ['--first']
+let g:neomake_python_pycodestyle_args = ['--first', '--ignore=E501']
 let g:neomake_python_pylint_args = [
         \ '--rcfile=' . self_dir . '/misc/.pylintrc',
         \ '--load-plugins=pylint_django',
