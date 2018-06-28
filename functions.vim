@@ -29,3 +29,15 @@ function InsertIfEmpty()
         startinsert
     endif
 endfunction
+
+" Less compile (with lessc)
+autocmd FileWritePost,BufWritePost *.less :call LessCSSCompile()
+function! LessCSSCompile()
+  let cwd = expand('<afile>:p:h')
+  let name = expand('<afile>:t:r')
+  if (executable('lessc'))
+    cal system('lessc '.cwd.'/'.name.'.less > '.cwd.'/'.name.'.css &')
+  elseif (executable('lesscpy'))
+    cal system('lesscpy '.cwd.'/'.name.'.less > '.cwd.'/'.name.'.css &')
+  endif
+endfunction
