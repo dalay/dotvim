@@ -31,7 +31,6 @@ function InsertIfEmpty()
 endfunction
 
 " Less compile (with lessc)
-autocmd FileWritePost,BufWritePost *.less :call LessCSSCompile()
 function! LessCSSCompile()
   let cwd = expand('<afile>:p:h')
   let name = expand('<afile>:t:r')
