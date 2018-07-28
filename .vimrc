@@ -229,7 +229,7 @@ nmap <Leader>p :r /tmp/.vim_buffer<CR>
 map gb :bnext<CR>
 map gB :bprev<CR>
 " Новая вкладка
-nmap t :tabnew<CR>:Startify<CR>
+nmap <leader>t :tabnew<CR>:Startify<CR>
 " Закрыть вкладку
 nmap <C-x> :tabclose<CR>
 " This will remap the "+y (copy) and "+p (paste) commands to use xclip.

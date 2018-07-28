@@ -234,9 +234,14 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 " VIM-SNEAK
-let g:sneak#label = 1
+" let g:sneak#label = 1
+let g:sneak#streak = 1
 map <leader>f <Plug>Sneak_s
-map <leader>F <Plug>Sneak_S
+map <leader><leader>f <Plug>Sneak_S
+" map f <Plug>Sneak_f
+" map F <Plug>Sneak_F
+" map f <Plug>Sneak_s
+" map F <Plug>Sneak_S
 " map f <Plug>Sneak_f
 " map F <Plug>Sneak_F
 " map t <Plug>Sneak_t
@@ -253,3 +258,4 @@ map <leader>F <Plug>Sneak_S
 let g:goyo_width = 100
 " let g:goyo_height = 90 
 " let g:goyo_linenr  "(default: 0)
+" let g:AutoPairsShortcutFastWrap = '<C-a>'
