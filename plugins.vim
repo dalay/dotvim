@@ -51,6 +51,8 @@ Plug 'tpope/vim-unimpaired'
 call plug#end()
 
 " NerdTreee 
+" ширина окна с деревом файлов
+let NERDTreeWinSize=50
 " автоматически обновлять буфер после переименовывания файла
 let NERDTreeAutoDeleteBuffer = 1
 " Disable bookmarks label, and hint about '?' 

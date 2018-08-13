@@ -235,6 +235,8 @@ nmap <C-x> :tabclose<CR>
 " This will remap the "+y (copy) and "+p (paste) commands to use xclip.
 " vmap "+y :!xclip -f -sel clip<CR>
 " map "+p :r!xclip -o -sel clip<CR>
+" Открыть окно с терминалом
+nmap <leader><leader>t :term<CR>
 
 " Поиск выделенного текста.
 vnoremap // y/<C-R>"<CR>
