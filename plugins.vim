@@ -86,7 +86,8 @@ let g:quickrun_config = {
 " let g:neomake_logfile = '/tmp/neomake.log'
 augroup neomake_lints
     autocmd!
-    autocmd BufWritePost *.py,*.php,*.js,*.css Neomake
+    " autocmd BufWritePost *.py,*.php,*.js,*.css Neomake
+    autocmd BufWritePost * Neomake
 augroup END
 let self_dir = expand("<sfile>:p:h")
 " neomake: python
