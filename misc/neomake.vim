@@ -6,7 +6,6 @@ augroup neomake_lints
     " autocmd BufWritePost *.py,*.php,*.js,*.css Neomake
     autocmd BufWritePost * Neomake
 augroup END
-let self_dir = expand("<sfile>:p:h")
 " neomake: python
 " let g:neomake_python_enabled_makers = ['pyflakes', 'pylint']
 let g:neomake_python_enabled_makers = ['python', 'pyflakes', 'pycodestyle']
@@ -15,7 +14,7 @@ let g:neomake_list_height = 5
 let g:neomake_echo_current_error=1
 let g:neomake_python_pycodestyle_args = ['--first', '--ignore=E501']
 let g:neomake_python_pylint_args = [
-        \ '--rcfile=' . self_dir . '/misc/.pylintrc',
+        \ '--rcfile=' . SELF_DIR . '/misc/.pylintrc',
         \ '--load-plugins=pylint_django',
         \ '--disable=django-not-available', 
         \ '--ignored-classes=Manager,File,TreeForeignKey',
@@ -27,13 +26,13 @@ let g:neomake_python_pylint_args = [
 " neomake: javascript
 let g:neomake_javascript_jshint_args = [
         \ '--verbose',
-        \ '--config=' . self_dir . '/misc/.jshintrc.json',
+        \ '--config=' . SELF_DIR . '/misc/.jshintrc.json',
         \ ]
 " neomake: css
 let g:neomake_css_enabled_markers = ['csslint']
 let g:neomake_css_csslint_args = [
                     \ '--format=compact',
-                    \ '--config=' . self_dir . '/misc/.csslintrc.json',
+                    \ '--config=' . SELF_DIR . '/misc/.csslintrc.json',
         \ ]
 " " Друпал - строгие правила.
 " let g:neomake_php_phpcs_args = [
