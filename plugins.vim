@@ -131,10 +131,10 @@ set noshowmode
 let g:airline_theme = 'jellybeans'
 " Set custom left separator 
 " let g:airline_left_sep = '▶'
-let g:airline_left_sep = '≡'
+let g:airline_left_sep = '☰'
 " Set custom right separator 
 " let g:airline_right_sep = '◀'
-let g:airline_right_sep = '≡'
+let g:airline_right_sep = '☰'
 " Enable airline for tab-bar 
 let g:airline#extensions#tabline#enabled = 1
 " Don't display buffers in tab-bar with single tab 
@@ -150,7 +150,8 @@ let g:airline_section_y = ''
 " Don't display filetype 
 let g:airline_section_x = ''
 let g:airline#extensions#tabline#left_sep = '▶'
-let g:airline#extensions#tabline#left_alt_sep = '/'
+" let g:airline#extensions#tabline#left_alt_sep = '/'
+let g:airline#extensions#tabline#left_alt_sep = '☰'
 " если файл с уникальным именем - показывается только имя, если встречается файл с таким же именем, отображается также и директория
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 " убираем "X" для закрытия вкладки мышью (мышью!?)
@@ -213,5 +214,7 @@ let g:goyo_width = 100
 
 " Импортируем настройки ALE
 " source $HOME/.vim/misc/ale.vim
+" exec 'source' . SELF_DIR . '/misc/ale.vim'
 " Импортируем настройки NEOMAKE
-source $HOME/.vim/misc/neomake.vim
+" source $HOME/.vim/misc/neomake.vim
+exec 'source' . SELF_DIR . '/misc/neomake.vim'

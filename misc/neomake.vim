@@ -1,11 +1,7 @@
 " NEOMAKE SETTINGS
 " let g:neomake_verbose = 0
 " let g:neomake_logfile = '/tmp/neomake.log'
-augroup neomake_lints
-    autocmd!
-    " autocmd BufWritePost *.py,*.php,*.js,*.css Neomake
-    autocmd BufWritePost * Neomake
-augroup END
+autocmd BufWritePost * Neomake
 " neomake: python
 " let g:neomake_python_enabled_makers = ['pyflakes', 'pylint']
 let g:neomake_python_enabled_makers = ['python', 'pyflakes', 'pycodestyle']
