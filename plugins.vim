@@ -18,8 +18,8 @@ Plug 'scrooloose/nerdtree', {'on': ['NERDTreeToggle', 'NERDTreeFind']}
 Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'}
 Plug 'terryma/vim-multiple-cursors'
 Plug 'thinca/vim-quickrun'
-" Plug 'neomake/neomake'                "Syntastic alternative
-Plug 'w0rp/ale'                "Syntastic alternative
+Plug 'neomake/neomake'                "Syntastic alternative
+" Plug 'w0rp/ale'                "Syntastic alternative
 Plug 'Chiel92/vim-autoformat', {'on': 'Autoformat'}
 Plug 'mhinz/vim-startify'             " Nice start screen
 Plug 'tpope/vim-commentary'
@@ -82,54 +82,6 @@ let g:quickrun_config = {
 \       "outputter/buffer/split" : ":rightbelow 40vsp",
 \   },
 \}
-
-" " NEOMAKE
-" " let g:neomake_verbose = 0
-" " let g:neomake_logfile = '/tmp/neomake.log'
-" augroup neomake_lints
-"     autocmd!
-"     " autocmd BufWritePost *.py,*.php,*.js,*.css Neomake
-"     autocmd BufWritePost * Neomake
-" augroup END
-" let self_dir = expand("<sfile>:p:h")
-" " neomake: python
-" " let g:neomake_python_enabled_makers = ['pyflakes', 'pylint']
-" let g:neomake_python_enabled_makers = ['python', 'pyflakes', 'pycodestyle']
-" let g:neomake_open_list = 2
-" let g:neomake_list_height = 5
-" let g:neomake_echo_current_error=1
-" let g:neomake_python_pycodestyle_args = ['--first', '--ignore=E501']
-" let g:neomake_python_pylint_args = [
-"         \ '--rcfile=' . self_dir . '/misc/.pylintrc',
-"         \ '--load-plugins=pylint_django',
-"         \ '--disable=django-not-available', 
-"         \ '--ignored-classes=Manager,File,TreeForeignKey',
-"         \ '--output-format=text',
-"         \ '--msg-template="{path}:{line}:{column}:{C}: [{symbol}] {msg} [{msg_id}]"',
-"         \ '--reports=no',
-"         \ '--disable=C,W,R0901,R0201',
-"         \ ]
-" " neomake: javascript
-" let g:neomake_javascript_jshint_args = [
-"         \ '--verbose',
-"         \ '--config=' . self_dir . '/misc/.jshintrc.json',
-"         \ ]
-" " neomake: css
-" let g:neomake_css_enabled_markers = ['csslint']
-" let g:neomake_css_csslint_args = [
-"                     \ '--format=compact',
-"                     \ '--config=' . self_dir . '/misc/.csslintrc.json',
-"         \ ]
-" " " Друпал - строгие правила.
-" " let g:neomake_php_phpcs_args = [
-" "             \ '--standard=Drupal',
-" "             \ '--extensions=php,module,inc,install,test,profile,theme',
-" "             \]
-" " Друпал - правили полегче.
-" let g:neomake_php_phpcs_args = [
-"             \ '--report=csv',
-"             \ '--standard='.expand("<sfile>:p:h").'/.vim/misc/phpcs-drupal-ruleset.xml',
-"             \ ]
 
 
 " Srartify
@@ -253,51 +205,13 @@ map <leader><leader>f <Plug>Sneak_S
 " map T <Plug>Sneak_T
 
 
-
-
-" ALE
-let g:airline#extensions#ale#enabled = 1
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
-let g:ale_set_loclist = 0
-let g:ale_set_quickfix = 1
-" let g:ale_open_list = 1
-" let g:ale_list_window_size = 5
-" Set this if you want to.
-" This can be useful if you are combining ALE with
-" some other plugin which sets quickfix errors, etc.
-" let g:ale_keep_list_window_open = 1
-let g:ale_lint_on_text_changed = 'never'
-" if you don't want linters to run on opening a file
-let g:ale_lint_on_enter = 0
-" let g:ale_sign_error = 'e'
-" let g:ale_sign_warning = 'w'
-" let g:ale_echo_msg_error_str = 'E'
-" let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_format = '[%linter%][%severity%][%code%] %s'
-let g:ale_linters = {
-\   'python': ['python', 'pyflakes', 'pycodestyle'],
-\   'php': ['php -l', 'phpcs'],
-\   'javascript': ['jshint',],
-\   'css': ['csslint',],
-\}
-" python
-let g:ale_python_pycodestyle_options = '--first --ignore=E501'
-" javascript
-let g:ale_filetype_javascript_jshint_options = '--verbose --config=' . SELF_DIR . '/misc/.jshintrc.json'
-" css
-let g:ale_filetype_css_csslint_options = '--format=compact --config=' . SELF_DIR . '/misc/.csslintrc.json'
-" php
-" Друпал - строгие правила.
-" let g:ale_filetype_php_phpcs_options = '--standard=Drupal --extensions=php,module,inc,install,test,profile,theme'
-" Друпал - правили полегче.
-let g:ale_filetype_php_phpcs_options = '--report=csv --standard=' . SELF_DIR . '/misc/phpcs-drupal-ruleset.xml'
-
-
-
-
 "GOYO
 let g:goyo_width = 100
 " let g:goyo_height = 90 
 " let g:goyo_linenr  "(default: 0)
 " let g:AutoPairsShortcutFastWrap = '<C-a>'
+
+" Импортируем настройки ALE
+" source $HOME/.vim/misc/ale.vim
+" Импортируем настройки NEOMAKE
+source $HOME/.vim/misc/neomake.vim
