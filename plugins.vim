@@ -250,6 +250,9 @@ map <leader><leader>f <Plug>Sneak_S
 " map t <Plug>Sneak_t
 " map T <Plug>Sneak_T
 
+
+
+
 " ALE
 let g:airline#extensions#ale#enabled = 1
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
@@ -257,9 +260,20 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
 let g:ale_lint_on_text_changed = 'never'
-" You can disable this option too
 " if you don't want linters to run on opening a file
 let g:ale_lint_on_enter = 0
+" let g:ale_sign_error = 'e'
+" let g:ale_sign_warning = 'w'
+" let g:ale_echo_msg_error_str = 'E'
+" let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%][%severity%][%code%] %s'
+let g:ale_linters = {
+\   'python': ['python', 'pyflakes', 'pycodestyle'],
+\   'php': ['php',],
+\}
+
+
+
 
 "GOYO
 let g:goyo_width = 100
