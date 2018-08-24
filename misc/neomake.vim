@@ -2,12 +2,13 @@
 " let g:neomake_verbose = 0
 " let g:neomake_logfile = '/tmp/neomake.log'
 autocmd BufWritePost * Neomake
-" neomake: python
-" let g:neomake_python_enabled_makers = ['pyflakes', 'pylint']
-let g:neomake_python_enabled_makers = ['python', 'pyflakes', 'pycodestyle']
 let g:neomake_open_list = 2
 let g:neomake_list_height = 5
 let g:neomake_echo_current_error=1
+
+" neomake: python
+" let g:neomake_python_enabled_makers = ['pyflakes', 'pylint']
+let g:neomake_python_enabled_makers = ['python', 'pyflakes', 'pycodestyle']
 let g:neomake_python_pycodestyle_args = ['--first', '--ignore=E501']
 let g:neomake_python_pylint_args = [
         \ '--rcfile=' . SELF_DIR . '/misc/.pylintrc',
@@ -19,17 +20,21 @@ let g:neomake_python_pylint_args = [
         \ '--reports=no',
         \ '--disable=C,W,R0901,R0201',
         \ ]
+
 " neomake: javascript
 let g:neomake_javascript_jshint_args = [
         \ '--verbose',
         \ '--config=' . SELF_DIR . '/misc/.jshintrc.json',
         \ ]
+
 " neomake: css
 let g:neomake_css_enabled_markers = ['csslint']
 let g:neomake_css_csslint_args = [
                     \ '--format=compact',
                     \ '--config=' . SELF_DIR . '/misc/.csslintrc.json',
         \ ]
+
+" neomake: php
 " " Друпал - строгие правила.
 " let g:neomake_php_phpcs_args = [
 "             \ '--standard=Drupal',
@@ -37,6 +42,7 @@ let g:neomake_css_csslint_args = [
 "             \]
 " Друпал - правили полегче.
 let g:neomake_php_phpcs_args = [
-            \ '--report=csv',
-            \ '--standard='.expand("<sfile>:p:h").'/.vim/misc/phpcs-drupal-ruleset.xml',
+            " \ '--report=csv',
+            \ '--extensions=php,module,inc,install,test,profile,theme',
+            \ '--standard=' . SELF_DIR . '/misc/phpcs-drupal-ruleset.xml',
             \ ]
