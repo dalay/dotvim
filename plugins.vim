@@ -150,8 +150,8 @@ let g:airline_section_y = ''
 " Don't display filetype 
 let g:airline_section_x = ''
 let g:airline#extensions#tabline#left_sep = '▶'
-" let g:airline#extensions#tabline#left_alt_sep = '/'
-let g:airline#extensions#tabline#left_alt_sep = '☰'
+let g:airline#extensions#tabline#left_alt_sep = ''
+" let g:airline#extensions#tabline#left_alt_sep = '☰'
 " если файл с уникальным именем - показывается только имя, если встречается файл с таким же именем, отображается также и директория
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 " убираем "X" для закрытия вкладки мышью (мышью!?)

@@ -2,6 +2,7 @@
 " let g:neomake_verbose = 0
 " let g:neomake_logfile = '/tmp/neomake.log'
 autocmd BufWritePost * Neomake
+
 let g:neomake_open_list = 2
 let g:neomake_list_height = 5
 let g:neomake_echo_current_error=1

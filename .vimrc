@@ -106,7 +106,8 @@ highlight clear SpellCap
 highlight SpellCap ctermfg=Blue
 highlight clear SpellLocal
 highlight SpellLocal ctermfg=Green
-
+" Check on write for a text
+" autocmd BufWritePost *.txt :setlocal spell
 
 " Turn backup off, since most stuff is in SVN, git et.c anyway...
 set nobackup
@@ -119,7 +120,7 @@ set imsearch=0
 " highlight lCursor guifg=NONE guibg=Cyan
 
 " Автоматически перечитывать конфигурацию VIM после сохранения
-autocmd! bufwritepost .vimrc source %
+autocmd! bufwritepost .vimrc,plugins.vim source %
 
 set scrolloff=3     " keep 3 lines when scrolling
 
