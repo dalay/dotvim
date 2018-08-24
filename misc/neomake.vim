@@ -42,7 +42,6 @@ let g:neomake_css_csslint_args = [
 "             \]
 " Друпал - правили полегче.
 let g:neomake_php_phpcs_args = [
-            " \ '--report=csv',
             \ '--extensions=php,module,inc,install,test,profile,theme',
             \ '--standard=' . SELF_DIR . '/misc/phpcs-drupal-ruleset.xml',
             \ ]
