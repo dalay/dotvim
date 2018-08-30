@@ -240,9 +240,14 @@ nmap <C-x> :tabclose<CR>
 nmap <leader><leader>t :term<CR>
 
 " Поиск выделенного текста.
-vnoremap // y/<C-R>"<CR>
-" С регуляркой.
-" vnoremap <expr> // 'y/\V'.escape(@",'\').'<CR>'
+function! s:VSetSearch()
+  let temp = @@
+  norm! gvy
+  let @/ = '\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
+  let @@ = temp
+endfunction
+vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR>
+vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR>
 
 " PLUGINS 
 source $HOME/.vim/plugins.vim
