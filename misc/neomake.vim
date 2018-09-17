@@ -42,7 +42,8 @@ let g:neomake_css_csslint_args = [
 "             \ '--extensions=php,module,inc,install,test,profile,theme',
 "             \]
 " Друпал - правили полегче.
-let g:neomake_php_phpcs_args = [
-            \ '--extensions=php,module,inc,install,test,profile,theme',
-            \ '--standard=' . SELF_DIR . '/misc/phpcs-drupal-ruleset.xml',
-            \ ]
+let g:neomake_php_enabled_markers = ['php']
+" let g:neomake_php_phpcs_args = [
+"             \ '--extensions=php,module,inc,install,test,profile,theme',
+"             \ '--standard=' . SELF_DIR . '/misc/phpcs-drupal-ruleset.xml',
+"             \ ]

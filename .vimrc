@@ -52,13 +52,12 @@ set ch=1
 " Включить автоотступы
 set autoindent
 
-" Преобразование Таба в пробелы
-set expandtab
-
 " Размер табуляции по умолчанию
 set shiftwidth=4
 set softtabstop=4
 set tabstop=4
+" Преобразование Таба в пробелы
+set expandtab
 
 " Формат строки состояния. Альтернативные варианты настройки `:h statusline`
 " set laststatus=2
