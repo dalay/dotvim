@@ -205,7 +205,12 @@ let mapleader=","
 " which is the default
 map Y y$
 " Открыть файл в Fierefox.
-nnoremap <C-F12> :exe ':silent !firefox %'<CR>
+" nnoremap <C-F12> :exe ':silent !firefox %'<CR>
+nnoremap <F12>f :exe ':silent !firefox %:p &'<CR>
+" Открыть файл в Chromium
+nnoremap <F12>c :exe ':silent !chromium %:p &'<CR>
+" nnoremap <leader><F5> :update<Bar>silent !xdg-open %:p &<CR>
+" nnoremap <leader><F8> :silent !xdg-open <cfile> &<CR>
 " Disable arrow keys
 noremap <Up> <Nop>
 noremap <Down> <Nop>
