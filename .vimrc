@@ -253,6 +253,9 @@ endfunction
 vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR>
 vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR>
 
+" Форматирование для XML-документов
+com! FormatXML :%!python3 -c "import xml.dom.minidom, sys; print(xml.dom.minidom.parse(sys.stdin).toprettyxml())"
+
 " PLUGINS 
 source $HOME/.vim/plugins.vim
 " F KEYS
