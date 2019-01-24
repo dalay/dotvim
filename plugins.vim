@@ -19,6 +19,8 @@ Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'}
 Plug 'terryma/vim-multiple-cursors'
 Plug 'thinca/vim-quickrun'
 Plug 'neomake/neomake'                "Syntastic alternative
+Plug 'tpope/vim-eunuch' " Vim sugar for the UNIX shell commands that need it the most. 
+" Plug 'tpope/vim-fugitive' " Git wrapper
 " Plug 'w0rp/ale'                "Syntastic alternative
 Plug 'Chiel92/vim-autoformat', {'on': 'Autoformat'}
 Plug 'mhinz/vim-startify'             " Nice start screen
