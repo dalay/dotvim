@@ -63,10 +63,12 @@ let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI=1
 "игноррируемые файлы с расширениями
 let NERDTreeIgnore=['^\.git$', '\~$', '\.pyc$', '\.pyo$', '\.class$', 'pip-log\.txt$', '\.o$']
-" показывать скрытые файды
+" показывать скрытые файлы
 let NERDTreeShowHidden=1
 " Закрывать после открытия файла
 let NERDTreeQuitOnOpen=1
+" to make the current directory match the root of the displayed tree
+let g:NERDTreeChDirMode=2
 " закрываем вместе с последним окном
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 nmap <C-\> :NERDTreeFind<CR>
@@ -88,7 +90,7 @@ let g:quickrun_config = {
 
 " Srartify
 map <silent> <leader>s  :Startify<CR>
-let g:startify_bookmarks = ['~/.bashrc', '~/.vimrc', '~/.vim/plugins.vim', '~/scripts/']
+let g:startify_bookmarks = ['~/.bashrc', '~/.vimrc', '~/.vim/plugins.vim', '~/scripts/', '~/.notes/default.txt']
 let g:startify_change_to_vcs_root = 1
 let g:startify_custom_header = []
 let g:startify_list_order = [
