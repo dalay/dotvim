@@ -200,6 +200,11 @@ nmap ga <Plug>(EasyAlign)
 let g:sneak#streak = 1
 map <leader>f <Plug>Sneak_s
 map <leader><leader>f <Plug>Sneak_S
+
+" 0 : Always case-sensitive
+" 1 : Case sensitivity is determined by 'ignorecase' and 'smartcase'.
+let g:sneak#use_ic_scs = 1
+
 " map f <Plug>Sneak_f
 " map F <Plug>Sneak_F
 " map f <Plug>Sneak_s
