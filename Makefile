@@ -1,8 +1,14 @@
 VIMRC=`pwd`/.vimrc
+VIMRC_DEST=$(HOME)/.vimrc
+VIMDIR_DEST=$(HOME)/.vim/
 
 install:
-	@ln -s $(VIMRC) $(HOME)/.vimrc
+	@ln -s $(VIMRC) $(VIMRC_DEST)
 	@vim -c ':PlugInstall --sync | :qa!'
+	@if sudo true; then \
+		sudo ln -s $(VIMDIR_DEST) /root/.vim/ \
+		sudo ln -s /root/.vim/.vimrc /root/.vimrc \
+	fi
 
 update: plug-upgrade
 	@vim -c ':PlugUpdate | :qa!'
