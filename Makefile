@@ -3,7 +3,13 @@ VIMRC_DEST=$(HOME)/.vimrc
 VIMDIR_DEST=$(HOME)/.vim/
 NOTROOTUSER=$(USER)
 
-install:
+preinstall:
+	@if [ -z $(which ctags) ]; then sudo apt install ctags -y; fi
+	@if [ -z $(which tmux) ]; then \
+		git clone https:github.com/dalay/dottmux ~/.tmux; fi \
+		cd ~/.tmux && make install
+
+install: preinstall
 	@ln -s $(VIMRC) $(VIMRC_DEST)
 	@vim -c ':PlugInstall --sync | :qa!'
 	@if sudo true; then \
