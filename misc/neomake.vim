@@ -47,3 +47,8 @@ let g:neomake_php_enabled_markers = ['php']
 "             \ '--extensions=php,module,inc,install,test,profile,theme',
 "             \ '--standard=' . SELF_DIR . '/misc/phpcs-drupal-ruleset.xml',
 "             \ ]
+" neomake: shell
+let g:neomake_sh_shellcheck_args = [
+        \ '-fgcc',
+        \ '--exclude=2006,2181',
+        \ ]
