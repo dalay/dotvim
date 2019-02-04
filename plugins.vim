@@ -14,7 +14,9 @@ let g:plug_window='enew'
 call plug#begin('~/.vim/plugged')
 
 " COMMON
-Plug 'scrooloose/nerdtree', {'on': ['NERDTreeToggle', 'NERDTreeFind']}
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-fugitive'
+" Plug 'scrooloose/nerdtree', {'on': ['NERDTreeToggle', 'NERDTreeFind']}
 Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'}
 Plug 'terryma/vim-multiple-cursors'
 Plug 'thinca/vim-quickrun'
@@ -72,6 +74,7 @@ let g:NERDTreeChDirMode=2
 " закрываем вместе с последним окном
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 nmap <C-\> :NERDTreeFind<CR>
+let g:NERDTreeHijackNetrw = 1
 
 " TagBar
 let g:tagbar_autofocus = 1 " автофокус на Tagbar при открытии
@@ -166,6 +169,11 @@ let g:airline#extensions#tabline#show_close_button = 0
 let g:airline#extensions#tabline#show_tab_nr = 1
 " показывать только номер вкладки
 let g:airline#extensions#tabline#tab_nr_type = 1
+" symbols
+if !exists('g:airline_symbols')
+let g:airline_symbols = {}
+endif
+let g:airline_symbols.branch = '⎇'
 
 " PHP 
 " PHP-DOCUMENTOR

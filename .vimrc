@@ -67,6 +67,7 @@ set expandtab
 " set statusline+=%w%h%m%r " Options
 " set statusline+=\ [%{&ff}/%Y] " filetype
 " set statusline+=\ [%{getcwd()}] " current dir
+" set statusline+=[%{FugitiveStatusline()}]
 
 " Включаем "умные" отступы, например, авто отступ после `{`
 set smartindent
