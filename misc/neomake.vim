@@ -10,7 +10,7 @@ let g:neomake_echo_current_error=1
 " neomake: python
 " let g:neomake_python_enabled_makers = ['pyflakes', 'pylint']
 let g:neomake_python_enabled_makers = ['python', 'pyflakes', 'pycodestyle']
-let g:neomake_python_pycodestyle_args = ['--first', '--ignore=E501']
+let g:neomake_python_pycodestyle_args = ['--first', '--ignore=E501,E402']
 let g:neomake_python_pylint_args = [
         \ '--rcfile=' . SELF_DIR . '/misc/.pylintrc',
         \ '--load-plugins=pylint_django',
