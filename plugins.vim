@@ -176,7 +176,7 @@ let g:airline_symbols.branch = '⎇'
 
 " PHP 
 " PHP-DOCUMENTOR
-au FileType php nnoremap <leader><leader>p :call PhpDoc()<CR> 
+au FileType php nnoremap <leader><leader>d :call PhpDoc()<CR> 
 let g:pdv_cfg_Author = 'Dalay <dalay@drupalka.ru>'
 let g:pdv_cfg_ClassTags = ["author"]
 
