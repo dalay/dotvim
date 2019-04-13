@@ -103,7 +103,7 @@ let g:startify_list_order = [
 \ ['   Bookmarks'],
 \ 'bookmarks',
 \ ]
-let g:startify_files_number = 7
+let g:startify_files_number           = 21
 let g:startify_enable_special         = 0
 let g:startify_relative_path          = 1
 let g:startify_change_to_dir          = 1
