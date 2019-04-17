@@ -79,6 +79,12 @@ let g:NERDTreeHijackNetrw = 1
 let g:tagbar_autofocus = 1 " автофокус на Tagbar при открытии
 " сортировать в том порядке, в котором тег появляется в коде, а не по имени
 let g:tagbar_sort = 0
+" If you set this option the Tagbar window will automatically close when you jump to a tag.
+let g:tagbar_autoclose = 1
+" Setting this option will result in Tagbar omitting the short help at the
+" top of the window and the blank lines in between top-level scopes in order to
+" save screen real estate.
+let g:tagbar_compact = 1
 
 
 " QuickRun
@@ -92,7 +98,7 @@ let g:quickrun_config = {
 
 " Srartify
 map <silent> <leader>s  :Startify<CR>
-let g:startify_bookmarks = ['~/.bashrc', '~/.vimrc', '~/.vim/plugins.vim', '~/scripts/', '~/.notes/default.txt']
+let g:startify_bookmarks = ['~/Makefile', '~/.bashrc', '~/.vimrc', '~/.vim/plugins.vim', '~/scripts/', '~/.notes/default.txt']
 let g:startify_change_to_vcs_root = 1
 let g:startify_custom_header = []
 let g:startify_list_order = [
@@ -221,6 +227,16 @@ let g:sneak#use_ic_scs = 1
 " map t <Plug>Sneak_t
 " map T <Plug>Sneak_T
 
+"EMMET
+let g:user_emmet_settings = {
+  \  'php' : {
+  \    'extends' : 'tpl.php',
+  \    'filters' : 'c',
+  \  },
+  \  'python' : {
+  \    'extends' : 'html',
+  \  },
+  \}
 
 "GOYO
 let g:goyo_width = 100
