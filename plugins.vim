@@ -199,6 +199,7 @@ let g:jedi#popup_select_first = 0
 
 " AUTOFORMAT
 let g_autoformat_verbosemode=1
+
 " VIM-PEEKABOO
 let g:peekaboo_compact = 1
 
