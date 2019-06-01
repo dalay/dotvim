@@ -10,6 +10,7 @@ let g:neomake_echo_current_error=1
 " neomake: python
 let g:neomake_python_exe = 'python3'
 let g:neomake_python_enabled_makers = ['python', 'flake8']
+let g:neomake_python_flake8_args = ['--config=' . SELF_DIR . '/misc/.flake8']
 " let g:neomake_python_pycodestyle_args = ['--first', '--ignore=E501,E402']
 " let g:neomake_python_pylint_args = [
 "         \ '--rcfile=' . SELF_DIR . '/misc/.pylintrc',
