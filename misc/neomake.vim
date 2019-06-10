@@ -51,5 +51,5 @@ let g:neomake_php_enabled_markers = ['php']
 " neomake: shell
 let g:neomake_sh_shellcheck_args = [
         \ '-fgcc',
-        \ '--exclude=2006,2181',
+        \ '--exclude=2006,2181,1117',
         \ ]
