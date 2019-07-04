@@ -262,6 +262,13 @@ com! FormatXML :%!python3 -c "import xml.dom.minidom, sys; print(xml.dom.minidom
 vmap <Leader><Leader>y y:call system("xclip -i -selection clipboard", getreg("\""))<cr>:call system("xclip -i", getreg("\""))<cr>
 nmap <Leader><Leader>p :call setreg("\"",system("xclip -o -selection clipboard"))<cr>p")")")"))
 
+" Abbreviations
+cnoreabbrev <expr> W ((getcmdtype() is# ':' && getcmdline() is# 'W')?('w'):('W'))
+cnoreabbrev <expr> ц ((getcmdtype() is# ':' && getcmdline() is# 'ц')?('w'):('ц'))
+cnoreabbrev <expr> й ((getcmdtype() is# ':' && getcmdline() is# 'й')?('q'):('й'))
+cnoreabbrev <expr> йф ((getcmdtype() is# ':' && getcmdline() is# 'йф')?('qa'):('йa'))
+
+
 " PLUGINS 
 source $HOME/.vim/plugins.vim
 " F KEYS
