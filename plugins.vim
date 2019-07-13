@@ -123,7 +123,8 @@ autocmd FileType nginx setlocal commentstring=#\ %s
 autocmd FileType php setlocal commentstring=//\ %s
 
 " SuperTab
-let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+" let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 
 "" CTRLP
 " По умолчанию, CtrlP ищет файлы по их полному пути, что мне показалось странным, поскольку на запрос "repo", имея следующую структуру файлов:
@@ -192,6 +193,7 @@ let g:pdv_cfg_ClassTags = ["author"]
 " PYTHON
 " JEDI-VIM
 let g:jedi#rename_command = ''
+let g:jedi#goto_stubs_command = ''
 " Jedi automatically starts the completion, if you type a dot, e.g. str., if you don't want this:
 let g:jedi#popup_on_dot = 0
 " Jedi selects the first line of the completion menu: for a better typing-flow and usually saves one keypress.
