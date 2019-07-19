@@ -36,7 +36,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'edkolev/tmuxline.vim'
+" Plug 'edkolev/tmuxline.vim'
 " PYTHON
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 " PHP
