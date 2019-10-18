@@ -215,7 +215,7 @@ nmap ga <Plug>(EasyAlign)
 " let g:sneak#label = 1
 let g:sneak#streak = 1
 map <leader>f <Plug>Sneak_s
-map <leader><leader>f <Plug>Sneak_S
+map <leader>b <Plug>Sneak_S
 
 " 0 : Always case-sensitive
 " 1 : Case sensitivity is determined by 'ignorecase' and 'smartcase'.
