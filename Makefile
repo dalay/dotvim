@@ -16,6 +16,10 @@ install: preinstall
 	@if sudo true && [[ $(USER) != 'root' ]]; then \
 		sudo ln -s ~$(USER)/.vim /root/.vim && sudo ln -s /root/.vim/.vimrc /root/.vimrc ; fi
 
+install-simple:
+	@ln -s $(VIMRC) $(VIMRC_DEST)
+	@vim -c ':PlugInstall --sync | :qa!'
+
 update: plug-upgrade
 	@vim -c ':PlugUpdate | :qa!'
 
