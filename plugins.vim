@@ -198,6 +198,9 @@ let g:jedi#goto_stubs_command = ''
 let g:jedi#popup_on_dot = 0
 " Jedi selects the first line of the completion menu: for a better typing-flow and usually saves one keypress.
 let g:jedi#popup_select_first = 0
+" make jedi-vim use tabs when going to a definition
+let g:jedi#use_tabs_not_buffers = 1
+let g:jedi#show_call_signatures = "2"
 
 " AUTOFORMAT
 let g_autoformat_verbosemode=1
