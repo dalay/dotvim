@@ -12,6 +12,8 @@
         "fallback-colors",
         "gradients",
         "font-sizes",
-        "box-sizing"
+        "box-sizing",
+        "known-properties",
+        "compatible-vendor-prefixes"
     ]
 }
