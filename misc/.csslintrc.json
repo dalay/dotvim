@@ -1,5 +1,6 @@
 {
     "ignore": [
+        "important",
         "ids",
         "order-alphabetical",
         "universal-selector",
