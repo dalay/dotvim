@@ -121,6 +121,7 @@ let g:startify_session_dir = '~/.vim/session'
 " Vim-Commentary
 autocmd FileType nginx setlocal commentstring=#\ %s
 autocmd FileType php setlocal commentstring=//\ %s
+autocmd FileType htmldjango setlocal commentstring={#\ %s\ #}
 
 " SuperTab
 " let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
