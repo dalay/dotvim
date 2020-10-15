@@ -20,13 +20,13 @@ Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'}
 Plug 'terryma/vim-multiple-cursors'
 Plug 'thinca/vim-quickrun'
 Plug 'neomake/neomake'                "Syntastic alternative
-" Plug 'tpope/vim-eunuch' " Vim sugar for the UNIX shell commands that need it the most. 
+" Plug 'tpope/vim-eunuch' " Vim sugar for the UNIX shell commands that need it the most.
 Plug 'tpope/vim-fugitive' " Git wrapper
 " Plug 'w0rp/ale'                "Syntastic alternative
 Plug 'Chiel92/vim-autoformat', {'on': 'Autoformat'}
 Plug 'mhinz/vim-startify'             " Nice start screen
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-repeat' 
+Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
 Plug 'ervandew/supertab'
@@ -47,20 +47,22 @@ Plug 'mattn/emmet-vim', { 'for': ['html', 'htmldjango'] }
 " SYNTAX
 Plug 'chr4/nginx.vim', {'for': 'nginx'}
 Plug 'dzeban/vim-log-syntax', { 'for': 'log' }
+Plug 'pearofducks/ansible-vim'
 " MISC
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' } " Distraction-free writing in Vim
-Plug 'tpope/vim-unimpaired' 
+Plug 'tpope/vim-unimpaired'
+
 
 call plug#end()
 
 let SELF_DIR = expand("<sfile>:p:h")
 
-" NerdTreee 
+" NerdTreee
 " ширина окна с деревом файлов
 let NERDTreeWinSize=50
 " автоматически обновлять буфер после переименовывания файла
 let NERDTreeAutoDeleteBuffer = 1
-" Disable bookmarks label, and hint about '?' 
+" Disable bookmarks label, and hint about '?'
 let NERDTreeMinimalUI=1
 "игноррируемые файлы с расширениями
 let NERDTreeIgnore=['^\.git$', '\~$', '\.pyc$', '\.pyo$', '\.class$', 'pip-log\.txt$', '\.o$']
@@ -89,11 +91,14 @@ let g:tagbar_compact = 1
 
 " QuickRun
 let g:quickrun_config = {
-\   "*" : {
-\       "outputter/buffer/close_on_empty" : 1,
-\       "outputter/buffer/split" : ":rightbelow 40vsp",
-\   },
-\}
+            \   '*' : {
+            \       'outputter/buffer/close_on_empty' : 1,
+            \       'outputter/buffer/split' : ':rightbelow 40vsp',
+            \   },
+            \   'yaml': {
+            \      'command': 'ansible-playbook'
+            \   }
+            \}
 
 
 " Srartify
@@ -102,13 +107,13 @@ let g:startify_bookmarks = ['~/Makefile', '~/.bashrc', '~/.vimrc', '~/.vim/plugi
 let g:startify_change_to_vcs_root = 1
 let g:startify_custom_header = []
 let g:startify_list_order = [
-\ ['   Recent Files'],
-\ 'files',
-\ ['   Sessions'],
-\ 'sessions',
-\ ['   Bookmarks'],
-\ 'bookmarks',
-\ ]
+            \ ['   Recent Files'],
+            \ 'files',
+            \ ['   Sessions'],
+            \ 'sessions',
+            \ ['   Bookmarks'],
+            \ 'bookmarks',
+            \ ]
 let g:startify_files_number           = 21
 let g:startify_enable_special         = 0
 let g:startify_relative_path          = 1
@@ -143,25 +148,25 @@ set laststatus=2
 set linespace=0
 set noshowmode
 let g:airline_theme = 'jellybeans'
-" Set custom left separator 
+" Set custom left separator
 " let g:airline_left_sep = '▶'
 let g:airline_left_sep = '☰'
-" Set custom right separator 
+" Set custom right separator
 " let g:airline_right_sep = '◀'
 let g:airline_right_sep = '☰'
-" Enable airline for tab-bar 
+" Enable airline for tab-bar
 let g:airline#extensions#tabline#enabled = 1
-" Don't display buffers in tab-bar with single tab 
+" Don't display buffers in tab-bar with single tab
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#keymap#enabled = 0
-" Display only filename in tab 
+" Display only filename in tab
 let g:airline#extensions#tabline#fnamemod = ':t'
 " Hide labels for tabs/buffers
 let airline#extensions#tabline#tabs_label = ''
 let airline#extensions#tabline#show_splits = 0
-" Don't display encoding 
+" Don't display encoding
 let g:airline_section_y = ''
-" Don't display filetype 
+" Don't display filetype
 let g:airline_section_x = ''
 let g:airline#extensions#tabline#left_sep = '▶'
 let g:airline#extensions#tabline#left_alt_sep = ''
@@ -178,13 +183,13 @@ let g:airline#extensions#tabline#show_tab_nr = 1
 let g:airline#extensions#tabline#tab_nr_type = 1
 " symbols
 if !exists('g:airline_symbols')
-let g:airline_symbols = {}
+    let g:airline_symbols = {}
 endif
 let g:airline_symbols.branch = '⎇'
 
-" PHP 
+" PHP
 " PHP-DOCUMENTOR
-au FileType php nnoremap <leader><leader>d :call PhpDoc()<CR> 
+au FileType php nnoremap <leader><leader>d :call PhpDoc()<CR>
 let g:pdv_cfg_Author = 'Dalay <dalay@drupalka.ru>'
 let g:pdv_cfg_ClassTags = ["author"]
 
@@ -236,18 +241,18 @@ let g:sneak#use_ic_scs = 1
 
 "EMMET
 let g:user_emmet_settings = {
-  \  'php' : {
-  \    'extends' : 'tpl.php',
-  \    'filters' : 'c',
-  \  },
-  \  'python' : {
-  \    'extends' : 'html',
-  \  },
-  \}
+            \  'php' : {
+            \    'extends' : 'tpl.php',
+            \    'filters' : 'c',
+            \  },
+            \  'python' : {
+            \    'extends' : 'html',
+            \  },
+            \}
 
 "GOYO
 let g:goyo_width = 100
-" let g:goyo_height = 90 
+" let g:goyo_height = 90
 " let g:goyo_linenr  "(default: 0)
 " let g:AutoPairsShortcutFastWrap = '<C-a>'
 
