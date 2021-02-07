@@ -103,7 +103,7 @@ let g:quickrun_config = {
 
 " Srartify
 map <silent> <leader>s  :Startify<CR>
-let g:startify_bookmarks = ['~/Makefile', '~/.bashrc', '~/.vimrc', '~/.vim/plugins.vim', '~/scripts/', '~/.notes/default.txt']
+let g:startify_bookmarks = ['~/Makefile', '~/.bashrc', '~/.vimrc', '~/.vim/plugins.vim', '~/scripts/']
 let g:startify_change_to_vcs_root = 1
 let g:startify_custom_header = []
 let g:startify_list_order = [
