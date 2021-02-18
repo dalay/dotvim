@@ -208,6 +208,7 @@ let g:jedi#popup_select_first = 0
 " make jedi-vim use tabs when going to a definition
 let g:jedi#use_tabs_not_buffers = 1
 let g:jedi#show_call_signatures = "2"
+let g:jedi#completions_enabled = 0
 
 " AUTOFORMAT
 let g_autoformat_verbosemode=1
