@@ -190,7 +190,7 @@ let g:airline_symbols.branch = '⎇'
 " PHP
 " PHP-DOCUMENTOR
 au FileType php nnoremap <leader><leader>d :call PhpDoc()<CR>
-let g:pdv_cfg_Author = 'Dalay <dalay@drupalka.ru>'
+let g:pdv_cfg_Author = 'Dalay <dalay@pythonway.ru>'
 let g:pdv_cfg_ClassTags = ["author"]
 
 " ANSIBLE
@@ -207,7 +207,7 @@ let g:jedi#popup_on_dot = 0
 let g:jedi#popup_select_first = 0
 " make jedi-vim use tabs when going to a definition
 let g:jedi#use_tabs_not_buffers = 1
-let g:jedi#show_call_signatures = "2"
+" let g:jedi#show_call_signatures = '0'
 let g:jedi#completions_enabled = 0
 
 " AUTOFORMAT
