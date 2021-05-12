@@ -199,6 +199,7 @@ au BufRead,BufNewFile inventory set filetype=ansible_hosts
 
 " PYTHON
 " JEDI-VIM
+let g:jedi#completions_enabled = 0
 let g:jedi#rename_command = ''
 let g:jedi#goto_stubs_command = ''
 " Jedi automatically starts the completion, if you type a dot, e.g. str., if you don't want this:
@@ -207,8 +208,7 @@ let g:jedi#popup_on_dot = 0
 let g:jedi#popup_select_first = 0
 " make jedi-vim use tabs when going to a definition
 let g:jedi#use_tabs_not_buffers = 1
-let g:jedi#show_call_signatures = 2
-let g:jedi#completions_enabled = 0
+let g:jedi#show_call_signatures = 0
 
 " AUTOFORMAT
 let g_autoformat_verbosemode=1
