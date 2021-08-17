@@ -93,12 +93,13 @@ let g:tagbar_compact = 1
 let g:quickrun_config = {
             \   '*' : {
             \       'outputter/buffer/close_on_empty' : 1,
-            \       'outputter/buffer/split' : ':rightbelow 40vsp',
+            \       'outputter/buffer/opener' : ':rightbelow 50vsp',
             \   },
             \   'yaml': {
             \      'command': 'ansible-playbook'
             \   }
             \}
+map <silent> <leader>r  :QuickRun<CR>
 
 
 " Srartify
