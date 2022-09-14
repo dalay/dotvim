@@ -8,4 +8,4 @@ exclude =
 max-line-length = 120
 statistics = True
 import-order-style = pep8
-ignore: Q001, W504, I202, F821
+ignore: Q001, W504, I202
