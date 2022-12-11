@@ -33,7 +33,7 @@ Plug 'ervandew/supertab'
 Plug 'justinmk/vim-sneak' " motions
 " Plug 'junegunn/vim-easy-align'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'junegunn/vim-peekaboo'
+" Plug 'junegunn/vim-peekaboo'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " Plug 'edkolev/tmuxline.vim'
