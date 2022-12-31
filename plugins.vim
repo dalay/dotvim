@@ -213,6 +213,7 @@ let g:jedi#show_call_signatures = 0
 
 " AUTOFORMAT
 let g_autoformat_verbosemode=1
+let g:formatters_javascript = []
 
 " VIM-PEEKABOO
 let g:peekaboo_compact = 1
