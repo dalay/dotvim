@@ -255,10 +255,10 @@ vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR>
 vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR>
 
 " Форматирование для XML-документов
-com! FormatXML :%!python -c "import xml.dom.minidom, sys; print(xml.dom.minidom.parse(sys.stdin).toprettyxml())"
+com! FormatXML %!python -c "import xml.dom.minidom, sys; print(xml.dom.minidom.parse(sys.stdin).toprettyxml())"
 
 " Форматирование для JSON-кода
-com! FormatJSON %!python -m json.tool --no-ensure-ascii --indent 4
+com! FormatJSON %!python -m json.tool --no-ensure-ascii --indent 2
 
 
 " copy to the system clipboard in vim with xclip

@@ -215,6 +215,12 @@ let g:jedi#show_call_signatures = 0
 let g_autoformat_verbosemode=1
 let g:formatters_javascript = []
 
+let g:formatdef_json_with_python = "'python -m json.tool --no-ensure-ascii --indent 2'"
+let g:formatters_json = ['json_with_python']
+
+" let g:formatdef_xml_with_python = "'import xml.dom.minidom, sys; print(xml.dom.minidom.parse(sys.stdin).toprettyxml())'"
+" let g:formatters_xml = ['xml_with_python']
+
 " VIM-PEEKABOO
 let g:peekaboo_compact = 1
 
