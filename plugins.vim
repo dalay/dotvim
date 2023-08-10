@@ -196,7 +196,7 @@ let g:pdv_cfg_ClassTags = ["author"]
 
 " ANSIBLE
 " let g:ansible_options = {'ignore_blank_lines': 0}
-au BufRead,BufNewFile inventory set filetype=ansible_hosts
+au BufRead,BufNewFile inventory* set filetype=ansible_hosts
 
 " PYTHON
 " JEDI-VIM

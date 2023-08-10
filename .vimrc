@@ -251,8 +251,14 @@ function! s:VSetSearch()
   let @/ = '\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
   let @@ = temp
 endfunction
-vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR>
-vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR>
+
+" no jump on start (with ``)
+vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR>``
+vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR>``
+
+" no jump on start (with ``)
+nnoremap * *``
+nnoremap # #``
 
 " Форматирование для XML-документов
 com! FormatXML %!python -c "import xml.dom.minidom, sys; print(xml.dom.minidom.parse(sys.stdin).toprettyxml())"
