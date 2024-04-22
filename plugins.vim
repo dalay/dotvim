@@ -40,7 +40,7 @@ Plug 'vim-airline/vim-airline-themes'
 " PYTHON
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 " PHP
-Plug 'sumpygump/php-documentor-vim', { 'for': 'php' }
+" Plug 'sumpygump/php-documentor-vim', { 'for': 'php' }
 " HTML
 Plug 'othree/html5.vim', { 'for': ['html', 'htmldjango'] }
 Plug 'mattn/emmet-vim', { 'for': ['html', 'htmldjango'] }
@@ -190,9 +190,9 @@ let g:airline_symbols.branch = '⎇'
 
 " PHP
 " PHP-DOCUMENTOR
-au FileType php nnoremap <leader><leader>d :call PhpDoc()<CR>
-let g:pdv_cfg_Author = 'Dalay <dalay@pythonway.ru>'
-let g:pdv_cfg_ClassTags = ["author"]
+" au FileType php nnoremap <leader><leader>d :call PhpDoc()<CR>
+" let g:pdv_cfg_Author = 'Dalay <dalay@pythonway.ru>'
+" let g:pdv_cfg_ClassTags = ["author"]
 
 " ANSIBLE
 " let g:ansible_options = {'ignore_blank_lines': 0}
