@@ -93,7 +93,7 @@ let g:tagbar_compact = 1
 let g:quickrun_config = {
             \   '*' : {
             \       'outputter/buffer/close_on_empty' : 1,
-            \       'outputter/buffer/opener' : ':rightbelow 50vsp',
+            \       'outputter/buffer/opener' : ':rightbelow 70vsplit',
             \   },
             \   'yaml': {
             \      'command': 'ansible-playbook'
