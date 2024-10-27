@@ -222,7 +222,7 @@ let g:jedi#goto_command = "<leader>g"
 let g:jedi#goto_definitions_command = "<leader>gd"
 let g:jedi#goto_assignments_command = "<leader>ga"
 let g:jedi#usages_command = "<leader>u"
-let g:jedi#rename_command = "<leader>r"
+let g:jedi#rename_command = "<leader><leader>r"
 
 " AUTOFORMAT
 let g_autoformat_verbosemode=1
