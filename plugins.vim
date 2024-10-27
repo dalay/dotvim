@@ -51,6 +51,8 @@ Plug 'pearofducks/ansible-vim'
 " MISC
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' } " Distraction-free writing in Vim
 Plug 'tpope/vim-unimpaired'
+" JavaScript
+Plug 'yuezk/vim-js'
 
 
 call plug#end()
@@ -216,7 +218,7 @@ let g:jedi#show_call_signatures = 0
 " let g:jedi#documentation_command = "K"
 " let g:jedi#completions_command = "<C-Space>"
 let g:jedi#environment_path = ".venv"
-let g:jedi#goto_command = "<leader>gt"
+let g:jedi#goto_command = "<leader>g"
 let g:jedi#goto_definitions_command = "<leader>gd"
 let g:jedi#goto_assignments_command = "<leader>ga"
 let g:jedi#usages_command = "<leader>u"
