@@ -277,6 +277,11 @@ cnoreabbrev <expr> ц ((getcmdtype() is# ':' && getcmdline() is# 'ц')?('w'):('�
 cnoreabbrev <expr> й ((getcmdtype() is# ':' && getcmdline() is# 'й')?('q'):('й'))
 cnoreabbrev <expr> йф ((getcmdtype() is# ':' && getcmdline() is# 'йф')?('qa'):('йa'))
 
+" Nwetrw file explorer settings
+let g:netrw_banner = 0 " hide banner above files
+let g:netrw_liststyle = 3 " tree instead of plain view
+let g:netrw_browse_split = 3 " lpen file in new tab
+
 
 " PLUGINS 
 source $HOME/.vim/plugins.vim

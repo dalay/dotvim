@@ -49,7 +49,7 @@ Plug 'chr4/nginx.vim', {'for': 'nginx'}
 Plug 'dzeban/vim-log-syntax', { 'for': 'log' }
 Plug 'pearofducks/ansible-vim'
 " MISC
-Plug 'junegunn/goyo.vim', { 'on': 'Goyo' } " Distraction-free writing in Vim
+" Plug 'junegunn/goyo.vim', { 'on': 'Goyo' } " Distraction-free writing in Vim
 Plug 'tpope/vim-unimpaired'
 " JavaScript
 Plug 'yuezk/vim-js'
@@ -274,7 +274,7 @@ let g:user_emmet_settings = {
             \}
 
 "GOYO
-let g:goyo_width = 100
+" let g:goyo_width = 100
 " let g:goyo_height = 90
 " let g:goyo_linenr  "(default: 0)
 " let g:AutoPairsShortcutFastWrap = '<C-a>'
