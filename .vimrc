@@ -5,6 +5,9 @@ set background=dark
 " Включаем несовместимость настроек с Vi
 set nocompatible
 
+" enable all Python syntax highlighting features
+let python_highlight_all = 1
+
 " Use 256 colors in vim 
 " some plugins not work without it 
 set t_Co=256
