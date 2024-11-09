@@ -9,8 +9,19 @@ let g:neomake_echo_current_error=1
 
 " neomake: python
 let g:neomake_python_exe = 'python3'
-let g:neomake_python_enabled_makers = ['python', 'flake8']
-let g:neomake_python_flake8_args = ['--config=' . SELF_DIR . '/misc/.flake8']
+
+let nm_makers = ['python']
+if executable('flake8')
+    call add(nm_makers, 'flake8')
+    let g:neomake_python_flake8_args = ['--config=' . SELF_DIR . '/misc/.flake8']
+endif
+if executable('mypy')
+    call add(nm_makers, 'mypy')
+endif
+
+let g:neomake_python_enabled_makers = nm_makers
+
+" let g:neomake_python_flake8_args = ['--config=' . SELF_DIR . '/misc/.flake8']
 " let g:neomake_python_pycodestyle_args = ['--first', '--ignore=E501,E402']
 " let g:neomake_python_pylint_args = [
 "         \ '--rcfile=' . SELF_DIR . '/misc/.pylintrc',
