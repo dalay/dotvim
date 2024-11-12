@@ -17,6 +17,7 @@ if executable('flake8')
 endif
 if executable('mypy')
     call add(nm_makers, 'mypy')
+    let g:neomake_python_mypy_args = ['--check-untyped-defs', '--ignore-missing-imports', '--disable-error-code=var-annotated']
 endif
 
 let g:neomake_python_enabled_makers = nm_makers
