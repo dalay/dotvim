@@ -231,6 +231,9 @@ let g:formatters_javascript = []
 let g:formatdef_json_with_python = "'python -m json.tool --no-ensure-ascii --indent 2'"
 let g:formatters_json = ['json_with_python']
 
+let g:formatdef_black = '"black --skip-string-normalization -q ".(&textwidth ? "-l".&textwidth : "")." -"'
+let g:formatdef_autopep8 = '"autopep8 -".(g:DoesRangeEqualBuffer(a:firstline, a:lastline) ? " --range ".a:firstline." ".a:lastline : "")." ".(&textwidth ? "--max-line-length=".&textwidth : "")'
+
 " let g:formatdef_xml_with_python = "'import xml.dom.minidom, sys; print(xml.dom.minidom.parse(sys.stdin).toprettyxml())'"
 " let g:formatters_xml = ['xml_with_python']
 
