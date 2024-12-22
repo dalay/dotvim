@@ -54,6 +54,9 @@ Plug 'tpope/vim-unimpaired'
 " JavaScript
 Plug 'yuezk/vim-js'
 
+" GO
+" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 
 call plug#end()
 
