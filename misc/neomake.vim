@@ -1,7 +1,7 @@
 " NEOMAKE SETTINGS
 " let g:neomake_verbose = 0
 " let g:neomake_logfile = '/tmp/neomake.log'
-autocmd BufWritePost * Neomake
+autocmd BufWritePost * if &ft != 'go' | Neomake
 
 let g:neomake_open_list = 2
 let g:neomake_list_height = 5
