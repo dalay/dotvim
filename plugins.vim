@@ -9,7 +9,6 @@
 " Vim-Plug settings
 "=====================================================
 " let g:plug_window='tabnew'
-" let g:plug_window='tabnew'
 let g:plug_window='enew'
 call plug#begin('~/.vim/plugged')
 
@@ -39,8 +38,6 @@ Plug 'vim-airline/vim-airline-themes'
 " Plug 'edkolev/tmuxline.vim'
 " PYTHON
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
-" PHP
-" Plug 'sumpygump/php-documentor-vim', { 'for': 'php' }
 " HTML
 Plug 'othree/html5.vim', { 'for': ['html', 'htmldjango'] }
 Plug 'mattn/emmet-vim', { 'for': ['html', 'htmldjango'] }
