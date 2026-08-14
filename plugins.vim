@@ -13,6 +13,7 @@ let g:plug_window='enew'
 call plug#begin('~/.vim/plugged')
 
 " COMMON
+Plug 'jremmen/vim-ripgrep'
 Plug 'scrooloose/nerdtree'
 " Plug 'scrooloose/nerdtree', {'on': ['NERDTreeToggle', 'NERDTreeFind']}
 " Plug 'preservim/tagbar', {'on': 'TagbarToggle'}
@@ -322,3 +323,6 @@ let g:user_emmet_settings = {
 " Импортируем настройки NEOMAKE
 " source $HOME/.vim/misc/neomake.vim
 exec 'source' . SELF_DIR . '/misc/neomake.vim'
+
+" RipGrep
+" let g:rg_highlight = 1
