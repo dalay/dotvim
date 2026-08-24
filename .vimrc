@@ -222,11 +222,13 @@ noremap <Left> <Nop>
 noremap <Right> <Nop>
 " убираем выделение найденного по нажатию на пробел.
 nnoremap <silent> <Space> :nohl<Bar>:echo<CR>
+
 " Map ctrl-movement keys to window switching
-" map <C-k> <C-w><Up>
-" map <C-j> <C-w><Down>
-" map <C-l> <C-w><Right>
-" map <C-h> <C-w><Left>
+map <C-k> <C-w><Up>
+map <C-j> <C-w><Down>
+map <C-l> <C-w><Right>
+map <C-h> <C-w><Left>
+"
 " Allow to copy/paste between VIM instances
 " "copy the current visual selection to /tmp/.vim_buffer
 vmap <Leader>y :w! /tmp/.vim_buffer<CR>
